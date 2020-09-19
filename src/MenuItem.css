@@ -1,0 +1,14 @@
+.description {
+    color: gray;
+    font-size: 12px;
+}
+
+.menu-item {
+    cursor: pointer;
+    width: 100%;
+    transition-duration: 0.2s;
+}
+
+.menu-item:hover {
+    box-shadow: 0 1px 6px 0 rgba(32,33,36,0.28); 
+}

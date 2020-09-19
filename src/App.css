@@ -1,5 +1,11 @@
+#root {
+  display: flex;
+  justify-content: center;
+}
+
 .App {
-  text-align: center;
+  flex: 1 1 auto;
+  max-width: 520px;
 }
 
 .App-logo {
