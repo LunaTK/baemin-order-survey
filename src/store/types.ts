@@ -29,4 +29,5 @@ export interface IOrderSummary {
     [key: string]: string[];
   };
   totalPrice: number;
+  orderer: string;
 }

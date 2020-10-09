@@ -2,6 +2,7 @@ import { IMenu } from "../types/common";
 import { ActionType, IAction } from '../actions';
 import { IOrderState, IOrder, IOrderSummary, IOptionEvent } from "../store/types";
 import { submitOrder } from '../lib/api';
+import { v5 as uuidv5 } from 'uuid';
 
 const initialState = (): IOrderState => ({
   orderList: [],
@@ -54,7 +55,6 @@ const getTotalPrice = (order: IOrder | null): number => {
   return totalPrice;
 };
 
-
 const orderToSummary = (order: IOrder): IOrderSummary => {
   const entries = Object.values(order.options).map(o => {
     const og = order.menu.optionGroups.find(og => og.optionGroupId === o.optionGroupId);
@@ -65,6 +65,7 @@ const orderToSummary = (order: IOrder): IOrderSummary => {
     menuDefault: order.menuDefault,
     options: Object.fromEntries(entries),
     totalPrice: order.totalPrice,
+    orderer: uuidv5('seclab', uuidv5.URL),
   };
 };
 
