@@ -22,5 +22,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# api key
+# firebase
 firebase-key.json
+firebase.json
+.firebase/

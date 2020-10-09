@@ -1,0 +1,27 @@
+.Cart {
+    position: sticky;
+    bottom: 0;
+    background: white;
+    padding: 1rem;
+    
+    box-shadow: 0 1px 6px rgba(32,33,36,0.28);
+    border-color: rgba(223,225,229,0);
+
+    .Cart--header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .order-preview {
+        display: flex;
+
+        .order-detail {
+            display: grid;
+            .option {
+                color: gray;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+        }
+    }
+}

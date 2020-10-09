@@ -1,40 +1,65 @@
-export interface ShopInfo {
-  name: string;
-  shpoId: number;
-  groupMenus: GroupMenu[];
+import firebase from 'firebase/app';
+import { IOrderSummary } from '../store/types';
+
+declare global {
+  var firebase: typeof firebase;
 }
 
-export interface GroupMenu {
+export interface IEventInfo {
+  date: firebase.firestore.Timestamp;
+  shop: firebase.firestore.DocumentReference;
+  title: string;
+  orders: {
+    userName: string;
+    order: IOrderSummary[];
+  }[];
+  closed: boolean;
+}
+
+export interface IShopInfo {
+  name: string;
+  shpoId: number;
+  groupMenus: IGroupMenu[];
+}
+
+export interface IGroupMenu {
   name: string;
   menuGroupId: number;
   description: string;
-  menus: Menu[];
+  menus: IMenu[];
 }
 
-export interface Menu {
+export interface IMenu {
   menuId: number;
   name: string;
-  imaegs: string[];
+  images: IImage[];
   description: string;
-  menuPrices: Price[];
-  optionGroups: OptionGroup[];
+  menuPrices: IPrice[];
+  optionGroups: IOptionGroup[];
 }
 
-export interface Price {
+export interface IImage {
+  url: string;
+  width: number | null;
+  height: number | null;
+  type: string;
+}
+
+export interface IPrice {
   name: string;
   price: string;
   pricePhraseType: string;
 }
 
-export interface OptionGroup {
+export interface IOptionGroup {
   optionGroupId: number;
   name: string;
   minOrderableQuantity: number;
   maxOrderableQuantity: number;
-  options: Option[];
+  options: IOption[];
 }
 
-export interface Option {
+export interface IOption {
   optionId: number;
   name: string;
   price: number;

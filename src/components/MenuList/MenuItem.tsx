@@ -1,11 +1,9 @@
 import React from 'react'
-import { Menu, Price } from './types/common';
-import './MenuItem.css';
+import { IMenu, IPrice } from '../../types/common';
 
-function PriceList(props: {
-  prices: Price[];
-}) {
-  const { prices } = props;
+const PriceList: React.FC<{
+  prices: IPrice[]
+}> = ({prices}) => {
   if (prices.length > 1) {
     return (<ul>
       {prices.map(p => <li>
@@ -17,19 +15,19 @@ function PriceList(props: {
       {prices[0].name}{prices[0].name && ' : '}{prices[0].price}
     </div>)
   }
-}
+};
 
-function MenuItem(props: {
-  menu: Menu
-}) {
-  const { menu } = props;
+const MenuItem: React.FC<{
+  menu: IMenu;
+  onClick: () => void | undefined;
+}> = ({ menu, onClick }) => {
   return (
-    <div className="menu-item">
+    <div className="MenuList__item" onClick={onClick}>
       <div>{menu.name}</div>
       <div className="description">{menu.description}</div>
       <PriceList prices={menu.menuPrices}/>
     </div>
-  )
-}
+  );
+};
 
-export default MenuItem
+export default MenuItem;
