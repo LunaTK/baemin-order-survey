@@ -1,6 +1,7 @@
 import { IOrderSummary } from './../store/types';
 import { IEventInfo, IShopInfo } from './../types/common';
 import firebaseKey from '../firebase-key.json';
+import { v5 as uuidv5 } from 'uuid';
 
 const fb = firebase.initializeApp(firebaseKey);
 const db = fb.firestore();
@@ -17,6 +18,7 @@ const submitOrder = (eventId: string, userName: string, order: IOrderSummary[]) 
       userName,
       order,
       totalPrice: order.reduce((acc, val) => acc + val.totalPrice, 0),
+      orderer: uuidv5('seclab', uuidv5.URL),
     }),
   });
 };

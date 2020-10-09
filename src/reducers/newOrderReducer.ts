@@ -2,7 +2,6 @@ import { IMenu } from "../types/common";
 import { ActionType, IAction } from '../actions';
 import { IOrderState, IOrder, IOrderSummary, IOptionEvent } from "../store/types";
 import { submitOrder } from '../lib/api';
-import { v5 as uuidv5 } from 'uuid';
 
 const initialState = (): IOrderState => ({
   orderList: [],
@@ -118,7 +117,6 @@ const newOrderReducer = (state = initialState(), action: IAction): IOrderState =
     currentOrder: !!state.currentOrder ? {
       ...state.currentOrder!,
     } : null,
-    orderer: uuidv5('seclab', uuidv5.URL),
   };
 }
 
