@@ -11,11 +11,13 @@ const getEvent = async (eventId: string) => {
   return ret.data() as IEventInfo;
 };
 
-const closeEvent = async (eventId: string) =>  db.collection('events').doc(eventId).update({
-  closed: true
+const closeEvent = async (eventId: string, passwd: string) =>  db.collection('events').doc(eventId).update({
+  closed: true,
+  passwd,
 });
-const openEvent = async (eventId: string) =>  db.collection('events').doc(eventId).update({
-  closed: false
+const openEvent = async (eventId: string, passwd: string) =>  db.collection('events').doc(eventId).update({
+  closed: false,
+  passwd,
 });
 
 const columns = [
@@ -49,12 +51,20 @@ const EventSummary: React.FC<EventSummaryProps> = ({match}) => {
 
   const onCloseEvent = () => {
     // eslint-disable-next-line no-restricted-globals
-    confirm('마감하시겠습니까?') && closeEvent(eventId);
+    closeEvent(eventId, prompt('비밀번호 입력')!)
+      .catch(e => {
+        alert('실패하였습니다');
+        console.error(e);
+      });
   };
 
   const onOpenEvent = () => {
     // eslint-disable-next-line no-restricted-globals
-    confirm('오픈하시겠습니까?') && openEvent(eventId);
+    openEvent(eventId, prompt('비밀번호 입력')!)
+      .catch(e => {
+        alert('실패하였습니다');
+        console.error(e);
+      });
   };
 
   useEffect(() => {
