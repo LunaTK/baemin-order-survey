@@ -5,6 +5,7 @@ export interface IOrderState {
   shop?: IShopInfo;
   orderList: IOrderSummary[];
   currentOrder: IOrder | null;
+  orderer: string;
 }
   
 export interface IOrder {
@@ -29,5 +30,4 @@ export interface IOrderSummary {
     [key: string]: string[];
   };
   totalPrice: number;
-  orderer: string;
 }

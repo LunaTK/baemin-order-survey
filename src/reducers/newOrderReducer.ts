@@ -7,6 +7,7 @@ import { v5 as uuidv5 } from 'uuid';
 const initialState = (): IOrderState => ({
   orderList: [],
   currentOrder: null,
+  orderer: '',
 });
 
 const createOrderFromMenu = (menu: IMenu | null): IOrder | null => {
@@ -65,7 +66,6 @@ const orderToSummary = (order: IOrder): IOrderSummary => {
     menuDefault: order.menuDefault,
     options: Object.fromEntries(entries),
     totalPrice: order.totalPrice,
-    orderer: uuidv5('seclab', uuidv5.URL),
   };
 };
 
@@ -115,6 +115,7 @@ const newOrderReducer = (state = initialState(), action: IAction): IOrderState =
     currentOrder: !!state.currentOrder ? {
       ...state.currentOrder!,
     } : null,
+    orderer: uuidv5('seclab', uuidv5.URL),
   };
 }
 
