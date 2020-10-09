@@ -85,7 +85,10 @@ const newOrderReducer = (state = initialState(), action: IAction): IOrderState =
       break;
     case ActionType.SUBMIT_ORDER:
       submitOrder(state.eventId!, payload, state.orderList)
-      .then(() => {alert('주문 접수 완료');})
+      .then(() => {
+        alert('주문 접수 완료');
+        window.location.pathname += '/summary';
+      })
       .catch(e => {
         alert('주문 접수 실패');
         console.error(e);

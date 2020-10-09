@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { RouteComponentProps } from 'react-router-dom';
+import { Link, RouteComponentProps } from 'react-router-dom';
 import { getEvent, getShopData } from '../lib/api';
 import { setEventId, setShop } from '../actions';
 import { connect, ConnectedProps } from 'react-redux';
 import MenuList from '../components/MenuList';
 import { IOrderState } from '../store/types';
 import { IEventInfo } from '../types/common';
-import { Result } from 'antd';
+import { Button, Result } from 'antd';
 
 const mapState = (state: IOrderState) => ({
   shopData: state.shop,
@@ -54,7 +54,9 @@ const Event: React.FC<EventProps> = ({ shopData, match, setEventId, setShop }) =
 
   return (
     <>
-      <div style={{width: 'fit-content', margin: 'auto'}}>{!!event && event.title}</div>
+      <div style={{width: 'fit-content', margin: 'auto'}}>
+        {!!event && event.title} <Button size="small" type="link"><Link to={`./${eventId}/summary`}>접수 현황</Link></Button> <br/>
+      </div>
       {!!event?.closed && <mark>본 주문은 마감되었습니다</mark>}
       <MenuList />
     </>
