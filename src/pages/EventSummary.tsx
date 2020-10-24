@@ -51,20 +51,26 @@ const EventSummary: React.FC<EventSummaryProps> = ({match}) => {
 
   const onCloseEvent = () => {
     // eslint-disable-next-line no-restricted-globals
-    closeEvent(eventId, prompt('비밀번호 입력')!)
-      .catch(e => {
-        alert('실패하였습니다');
-        console.error(e);
-      });
+    const passwd = prompt('비밀번호 입력');
+    if (passwd) {
+      closeEvent(eventId, passwd)
+        .catch(e => {
+          alert('실패하였습니다');
+          console.error(e);
+        });
+    }
   };
 
   const onOpenEvent = () => {
     // eslint-disable-next-line no-restricted-globals
-    openEvent(eventId, prompt('비밀번호 입력')!)
-      .catch(e => {
-        alert('실패하였습니다');
-        console.error(e);
-      });
+    const passwd = prompt('비밀번호 입력');
+    if (passwd) {
+      openEvent(eventId, passwd)
+        .catch(e => {
+          alert('실패하였습니다');
+          console.error(e);
+        });
+    }
   };
 
   useEffect(() => {
