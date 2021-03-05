@@ -34,7 +34,10 @@ const columns = [
       <>
         {order.map(os => <OrderPreview orderSummary={os} showFullOption />)}
       </>
-    )
+    ),
+    sorter: (o1: any, o2: any) => {
+      return o1.order[0].menuName < o2.order[0].menuName ? -1 : 1;
+    }
   },
   {
     title: '금액',
@@ -78,7 +81,7 @@ const EventSummary: React.FC<EventSummaryProps> = ({match}) => {
   }, [eventId]);
   return (
     <>
-      <h1>{event?.title} 주문요약{event?.closed === true && <mark> - 마감</mark>}</h1>
+      <h1>{event?.title} 주문요약{/*event?.closed === true && <mark> - 마감</mark>*/}</h1>
       <h2>총 주문 : {event?.orders.length}</h2>
       <Button onClick={onOpenEvent}>오픈하기</Button>
       <Button onClick={onCloseEvent}>마감하기</Button>
