@@ -18,7 +18,7 @@ export interface IEventInfo {
 
 export interface IShopInfo {
   name: string;
-  shpoId: number;
+  shopId: number;
   groupMenus: IGroupMenu[];
 }
 
