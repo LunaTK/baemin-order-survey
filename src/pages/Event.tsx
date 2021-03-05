@@ -57,7 +57,7 @@ const Event: React.FC<EventProps> = ({ shopData, match, setEventId, setShop }) =
       <div style={{width: 'fit-content', margin: 'auto'}}>
         {!!event && event.title} <Button size="small" type="link"><Link to={`./${eventId}/summary`}>접수 현황</Link></Button> <br/>
       </div>
-      {!!event?.closed && <mark>본 주문은 마감되었습니다</mark>}
+      {/* {!!event?.closed && <mark>본 주문은 마감되었습니다</mark>} */}
       <MenuList />
     </>
   );
