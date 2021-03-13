@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9c4f87659090136ef668311273950a29",
+    "revision": "5605b7932229a1f4d28f4854b6999457",
     "url": "/seclab-dining-webapp/index.html"
   },
   {
@@ -44,8 +44,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/seclab-dining-webapp/static/js/9.a1f8667b.chunk.js"
   },
   {
-    "revision": "b8d77fc27ede41a65c7c",
-    "url": "/seclab-dining-webapp/static/js/main.79fc174f.chunk.js"
+    "revision": "cc84978cd216aa3ad7f2",
+    "url": "/seclab-dining-webapp/static/js/main.8c2db3bf.chunk.js"
   },
   {
     "revision": "12978e0267c8619fbfea",
