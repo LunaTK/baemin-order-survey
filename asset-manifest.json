@@ -2,23 +2,23 @@
   "files": {
     "static/js/0.747211d7.chunk.js": "/seclab-dining-webapp/static/js/0.747211d7.chunk.js",
     "static/js/1.65bce4bf.chunk.js": "/seclab-dining-webapp/static/js/1.65bce4bf.chunk.js",
-    "main.js": "/seclab-dining-webapp/static/js/main.8c2db3bf.chunk.js",
-    "runtime-main.js": "/seclab-dining-webapp/static/js/runtime-main.405a3418.js",
+    "main.js": "/seclab-dining-webapp/static/js/main.f64a9311.chunk.js",
+    "runtime-main.js": "/seclab-dining-webapp/static/js/runtime-main.363e944d.js",
     "static/js/4.6cff3a86.chunk.js": "/seclab-dining-webapp/static/js/4.6cff3a86.chunk.js",
     "static/js/5.4ff15c86.chunk.js": "/seclab-dining-webapp/static/js/5.4ff15c86.chunk.js",
     "static/js/6.77f24f11.chunk.js": "/seclab-dining-webapp/static/js/6.77f24f11.chunk.js",
-    "static/js/7.8474e20a.chunk.js": "/seclab-dining-webapp/static/js/7.8474e20a.chunk.js",
-    "static/js/8.260f9dd2.chunk.js": "/seclab-dining-webapp/static/js/8.260f9dd2.chunk.js",
+    "static/js/7.49489c3f.chunk.js": "/seclab-dining-webapp/static/js/7.49489c3f.chunk.js",
+    "static/js/8.967fc87f.chunk.js": "/seclab-dining-webapp/static/js/8.967fc87f.chunk.js",
     "static/js/9.a1f8667b.chunk.js": "/seclab-dining-webapp/static/js/9.a1f8667b.chunk.js",
     "index.html": "/seclab-dining-webapp/index.html",
-    "precache-manifest.5b0d7a063c346f587ee76f1379e027a5.js": "/seclab-dining-webapp/precache-manifest.5b0d7a063c346f587ee76f1379e027a5.js",
+    "precache-manifest.8a31fd163f2d3558dfb09702e7b731c3.js": "/seclab-dining-webapp/precache-manifest.8a31fd163f2d3558dfb09702e7b731c3.js",
     "service-worker.js": "/seclab-dining-webapp/service-worker.js",
     "static/js/0.747211d7.chunk.js.LICENSE.txt": "/seclab-dining-webapp/static/js/0.747211d7.chunk.js.LICENSE.txt",
     "static/js/6.77f24f11.chunk.js.LICENSE.txt": "/seclab-dining-webapp/static/js/6.77f24f11.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.405a3418.js",
+    "static/js/runtime-main.363e944d.js",
     "static/js/6.77f24f11.chunk.js",
-    "static/js/main.8c2db3bf.chunk.js"
+    "static/js/main.f64a9311.chunk.js"
   ]
 }
