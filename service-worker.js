@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/seclab-dining-webapp/precache-manifest.8a31fd163f2d3558dfb09702e7b731c3.js"
+  "/seclab-dining-webapp/precache-manifest.64a633b5007fb98fac0285cfe12198f4.js"
 );
 
 self.addEventListener('message', (event) => {
