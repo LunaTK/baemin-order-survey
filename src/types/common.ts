@@ -5,15 +5,19 @@ declare global {
   var firebase: typeof firebase;
 }
 
+export type FirestoreDocRef<T=any> = {
+  id: string;
+  data: () => T;
+};
+
 export interface IEventInfo {
-  date: firebase.firestore.Timestamp;
-  shop: firebase.firestore.DocumentReference;
+  shop: FirestoreDocRef<IShopInfo>;
   title: string;
   orders: {
     userName: string;
     order: IOrderSummary[];
+    totalPrice: number;
   }[];
-  closed: boolean;
 }
 
 export interface IShopInfo {

@@ -2,9 +2,10 @@ import { List } from 'antd';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getEventList } from '../lib/api';
+import { IEventInfo, FirestoreDocRef } from '../types/common';
 
 const EventList = () => {
-  const [eventList, setEventList] = useState<any>([]);
+  const [eventList, setEventList] = useState<FirestoreDocRef<IEventInfo>[]>([]);
 
   useEffect(() => {
     getEventList().then(setEventList);
@@ -15,7 +16,11 @@ const EventList = () => {
       header={<div>이벤트 목록</div>}
       bordered
       dataSource={eventList}
-      renderItem={(item: any) => <List.Item><Link to={`/event/${item.id}`}>{item.data().title}</Link></List.Item>}
+      renderItem={(item: FirestoreDocRef<IEventInfo>) => (
+        <List.Item>
+          <Link to={`/event/${item.id}`}>{item.data().title}</Link>
+        </List.Item>)
+      }
     />
   );
 };

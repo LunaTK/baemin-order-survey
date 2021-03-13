@@ -1,12 +1,12 @@
-import { IOrderSummary } from './../store/types';
-import { IEventInfo, IShopInfo } from './../types/common';
-import firebaseKey from '../firebase-key.json';
+import { IOrderSummary } from '../../store/types';
+import { FirestoreDocRef, IEventInfo, IShopInfo } from '../../types/common';
+import firebaseKey from '../../firebase-key.json';
 import { v5 as uuidv5 } from 'uuid';
 
 const fb = firebase.initializeApp(firebaseKey);
 const db = fb.firestore();
 
-const getEventList = () => db.collection('events').orderBy("date").get().then(snapshot => snapshot.docs);
+const getEventList = () => db.collection('events').orderBy("date").get().then(snapshot => snapshot.docs as unknown as FirestoreDocRef<IEventInfo>[]);
 
 const getEvent = (eventId: string) => db.collection('events').doc(eventId).get().then(snapshot => snapshot.data() as IEventInfo);
 
@@ -24,7 +24,6 @@ const submitOrder = (eventId: string, userName: string, order: IOrderSummary[]) 
 };
 
 export {
-  db,
   getEvent,
   getEventList,
   getShopData,

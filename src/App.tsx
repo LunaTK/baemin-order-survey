@@ -5,10 +5,10 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Redirect,
 } from "react-router-dom";
 import { Provider } from 'react-redux';
 import newOrderStore from './store/new-order-store';
-import NotFound from './pages/NotFound';
 
 const Event = lazy(() => import('./pages/Event'));
 const EventSummary = lazy(() => import('./pages/EventSummary'));
@@ -16,20 +16,20 @@ const EventList = lazy(() => import('./pages/EventList'));
 
 function App() {
   return (
-    <Router>
-      <div className="App">
+    <div className="App">
+      <Router basename={process.env.PUBLIC_URL}>
         <Suspense fallback={null}>
-          <Switch>
-            <Route exact path="/event/:eventId/summary" component={EventSummary} />
-            <Route exact path="/eventlist" component={EventList} />
-            <Provider store={newOrderStore}>
+          <Provider store={newOrderStore}>
+            <Switch>
+              <Route exact path="/event/:eventId/summary" component={EventSummary} />
+              <Route exact path="/eventlist" component={EventList} />
               <Route exact path="/event/:eventId" component={Event} />
-            </Provider>
-            <Route component={NotFound}/>
-          </Switch>
+              <Redirect to="/eventlist"/>
+            </Switch>
+          </Provider>
         </Suspense>
-      </div>
-    </Router>
+      </Router>
+    </div>
   );
 }
 
