@@ -1,23 +1,24 @@
 {
   "files": {
-    "static/js/0.e5e7c96c.chunk.js": "/seclab-dining-webapp/static/js/0.e5e7c96c.chunk.js",
-    "static/js/1.a2d933f5.chunk.js": "/seclab-dining-webapp/static/js/1.a2d933f5.chunk.js",
-    "main.js": "/seclab-dining-webapp/static/js/main.6663abb8.chunk.js",
-    "runtime-main.js": "/seclab-dining-webapp/static/js/runtime-main.d13f3c3a.js",
-    "static/js/4.0b8d76f1.chunk.js": "/seclab-dining-webapp/static/js/4.0b8d76f1.chunk.js",
-    "static/js/5.39994995.chunk.js": "/seclab-dining-webapp/static/js/5.39994995.chunk.js",
-    "static/js/6.df797646.chunk.js": "/seclab-dining-webapp/static/js/6.df797646.chunk.js",
-    "static/js/7.6937ea1c.chunk.js": "/seclab-dining-webapp/static/js/7.6937ea1c.chunk.js",
-    "static/js/8.72fde436.chunk.js": "/seclab-dining-webapp/static/js/8.72fde436.chunk.js",
-    "static/js/9.4aa17ba3.chunk.js": "/seclab-dining-webapp/static/js/9.4aa17ba3.chunk.js",
+    "static/js/0.747211d7.chunk.js": "/seclab-dining-webapp/static/js/0.747211d7.chunk.js",
+    "static/js/1.65bce4bf.chunk.js": "/seclab-dining-webapp/static/js/1.65bce4bf.chunk.js",
+    "main.js": "/seclab-dining-webapp/static/js/main.7ec8d5f4.chunk.js",
+    "runtime-main.js": "/seclab-dining-webapp/static/js/runtime-main.405a3418.js",
+    "static/js/4.6cff3a86.chunk.js": "/seclab-dining-webapp/static/js/4.6cff3a86.chunk.js",
+    "static/js/5.4ff15c86.chunk.js": "/seclab-dining-webapp/static/js/5.4ff15c86.chunk.js",
+    "static/js/6.77f24f11.chunk.js": "/seclab-dining-webapp/static/js/6.77f24f11.chunk.js",
+    "static/js/7.8474e20a.chunk.js": "/seclab-dining-webapp/static/js/7.8474e20a.chunk.js",
+    "static/js/8.260f9dd2.chunk.js": "/seclab-dining-webapp/static/js/8.260f9dd2.chunk.js",
+    "static/js/9.a1f8667b.chunk.js": "/seclab-dining-webapp/static/js/9.a1f8667b.chunk.js",
     "index.html": "/seclab-dining-webapp/index.html",
-    "precache-manifest.aaf71e34a27e15557f6e1f91e06d5055.js": "/seclab-dining-webapp/precache-manifest.aaf71e34a27e15557f6e1f91e06d5055.js",
+    "precache-manifest.aec34838de37b83318e1eb99256a1837.js": "/seclab-dining-webapp/precache-manifest.aec34838de37b83318e1eb99256a1837.js",
     "service-worker.js": "/seclab-dining-webapp/service-worker.js",
-    "static/js/5.39994995.chunk.js.LICENSE.txt": "/seclab-dining-webapp/static/js/5.39994995.chunk.js.LICENSE.txt"
+    "static/js/0.747211d7.chunk.js.LICENSE.txt": "/seclab-dining-webapp/static/js/0.747211d7.chunk.js.LICENSE.txt",
+    "static/js/6.77f24f11.chunk.js.LICENSE.txt": "/seclab-dining-webapp/static/js/6.77f24f11.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.d13f3c3a.js",
-    "static/js/5.39994995.chunk.js",
-    "static/js/main.6663abb8.chunk.js"
+    "static/js/runtime-main.405a3418.js",
+    "static/js/6.77f24f11.chunk.js",
+    "static/js/main.7ec8d5f4.chunk.js"
   ]
 }
