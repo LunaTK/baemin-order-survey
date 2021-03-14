@@ -3,9 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker'
+import Banner from './components/Banner';
 
 ReactDOM.render(
   <React.StrictMode>
+  {process.env.REACT_APP_USE_MOCK && <Banner />}
     <App />
   </React.StrictMode>,
   document.getElementById('root')
