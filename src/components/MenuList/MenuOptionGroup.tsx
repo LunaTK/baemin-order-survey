@@ -51,7 +51,7 @@ const MenuOptionGroup: React.FC<MenuOptionGroupProps> = ({ optionGroup, updateOp
     // 라디오버튼 선택값은 리스트로 래핑해서 보낸다
     const _selected = isRadio ? [selected] : selected;
     setSelected(selected);
-    updateOption!({
+    updateOption({
       optionGroupId: optionGroup.optionGroupId,
       name: optionGroup.name,
       selected: _selected, // 라디오버튼 선택값은 리스트로 래핑해서 보낸다
