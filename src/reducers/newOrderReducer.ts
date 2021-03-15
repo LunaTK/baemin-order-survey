@@ -70,21 +70,19 @@ const orderToSummary = (order: IOrder): IOrderSummary => {
 };
 
 const newOrderReducer = (state = initialState(), action: IAction): IOrderState => {
-  const { type, payload } = action;
-
-  switch(type) {
+  switch(action.type) {
     case ActionType.SET_EVENT_ID:
-      state.eventId = payload;
+      state.eventId = action.payload;
       break;
     case ActionType.ADD_ORDER:
       state.orderList.push(orderToSummary(state.currentOrder!));
       break;
     case ActionType.REMOVE_ORDER:
       const ol = state.orderList;
-      state.orderList = [...ol.slice(0, payload), ...ol.slice(payload+1)];
+      state.orderList = [...ol.slice(0, action.payload), ...ol.slice(action.payload+1)];
       break;
     case ActionType.SUBMIT_ORDER:
-      submitOrder(state.eventId!, payload, state.orderList)
+      submitOrder(state.eventId!, action.payload, state.orderList)
       .then(() => {
         alert('주문 접수 완료');
         window.location.pathname += '/summary';
@@ -95,19 +93,19 @@ const newOrderReducer = (state = initialState(), action: IAction): IOrderState =
       });
       break;
     case ActionType.SET_SHOP:
-      state.shop = payload;
+      state.shop = action.payload;
       break;
     case ActionType.SET_CURRENT_ORDER:
-      state.currentOrder = createOrderFromMenu(payload as IMenu | null);
+      state.currentOrder = createOrderFromMenu(action.payload as IMenu | null);
       if (state.currentOrder)
         state.currentOrder!.totalPrice = getTotalPrice(state.currentOrder);
       break;
     case ActionType.UPDATE_MENU_DEFAULT:
-      state.currentOrder!.menuDefault = payload;
+      state.currentOrder!.menuDefault = action.payload;
       state.currentOrder!.totalPrice = getTotalPrice(state.currentOrder);
       break;
     case ActionType.UPDATE_OPTION:
-      updateOptionFromOrder(state.currentOrder!, payload);
+      updateOptionFromOrder(state.currentOrder!, action.payload);
       state.currentOrder!.totalPrice = getTotalPrice(state.currentOrder);
       break;
   }
