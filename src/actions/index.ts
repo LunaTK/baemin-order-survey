@@ -1,3 +1,4 @@
+import { IOptionEvent } from '../store/types';
 import { IMenu, IShopInfo } from '../types/common';
 
 export enum ActionType {
@@ -38,7 +39,7 @@ export const updateMenuDefault = (menuDefault: string) => ({
   payload: menuDefault,
 });
 
-export const updateOption = (e: any) => ({
+export const updateOption = (e: IOptionEvent): IAction => ({
   type: ActionType.UPDATE_OPTION,
   payload: e,
 });
