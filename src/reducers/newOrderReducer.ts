@@ -5,6 +5,7 @@ import { submitOrder } from '../lib/api';
 
 const initialState = (): IOrderState => ({
   orderList: [],
+  shop: null,
   currentOrder: null,
   orderer: '',
 });

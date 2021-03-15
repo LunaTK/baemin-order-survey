@@ -2,7 +2,7 @@ import { IShopInfo, IMenu } from "../types/common";
 
 export interface IOrderState {
   eventId?: string;
-  shop?: IShopInfo;
+  shop: IShopInfo | null;
   orderList: IOrderSummary[];
   currentOrder: IOrder | null;
   orderer: string;
