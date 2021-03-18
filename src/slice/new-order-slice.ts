@@ -159,9 +159,10 @@ const newOrderSlice = createSlice({
       state.event.data = action.payload.eventInfo;
       state.eventId = action.payload.eventId;
     });
-    builder.addCase(setEvent.rejected, (state) => {
+    builder.addCase(setEvent.rejected, (state, action) => {
       state.event.loading = false;
       state.event.data = undefined;
+      state.event.error = action.error.message;
       state.eventId = null;
     });
 
@@ -172,9 +173,10 @@ const newOrderSlice = createSlice({
       state.shop.loading = false;
       state.shop.data = action.payload;
     });
-    builder.addCase(setShop.rejected, (state) => {
+    builder.addCase(setShop.rejected, (state, action) => {
       state.shop.loading = false;
       state.shop.data = undefined;
+      state.shop.error = action.error.message;
     });
   }
 });

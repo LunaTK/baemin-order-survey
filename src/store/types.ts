@@ -3,7 +3,7 @@ import { IShopInfo, IMenu, IEventInfo } from "../types/common";
 export interface AsyncState<T> {
   loading: boolean;
   data?: T;
-  error?: Error;
+  error?: string;
 }
 
 export interface IOrderState {
