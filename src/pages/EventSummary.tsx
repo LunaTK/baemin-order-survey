@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { RouteComponentProps } from 'react-router-dom';
-import { getEvent } from '../lib/api';
+import { fetchEventInfo } from '../lib/api';
 import { OrderPreview } from '../components/Cart';
 import { IEventInfo } from '../types/common';
 import { Table } from 'antd';
@@ -39,7 +39,7 @@ const EventSummary: React.FC<EventSummaryProps> = ({match}) => {
   const [event, setEvent] = useState<IEventInfo | null>(null);
 
   useEffect(() => {
-    getEvent(eventId).then(setEvent);
+    fetchEventInfo(eventId).then(setEvent);
   }, [eventId]);
   return (
     <>

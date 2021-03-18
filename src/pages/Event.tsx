@@ -1,20 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { Link, RouteComponentProps } from 'react-router-dom';
-import { getEvent, getShopData } from '../lib/api';
-import { setEventId, setShop } from '../actions';
 import { connect, ConnectedProps } from 'react-redux';
+import { setEvent } from '../slice/new-order-slice';
 import MenuList from '../components/MenuList';
 import { IOrderState } from '../store/types';
-import { IEventInfo } from '../types/common';
 import { Button, Result } from 'antd';
 
 const mapState = (state: IOrderState) => ({
-  shopData: state.shop,
+  eventInfo: state.event,
+  shopInfo: state.shop,
 });
 
 const mapDispatch = {
-  setEventId,
-  setShop,
+  setEvent,
 };
 
 const connector = connect(mapState, mapDispatch);
@@ -22,27 +20,14 @@ const connector = connect(mapState, mapDispatch);
 type EventProps = RouteComponentProps<{eventId: string}> 
   & ConnectedProps<typeof connector>;
 
-const Event: React.FC<EventProps> = ({ shopData, match, setEventId, setShop }) => {
+const Event: React.FC<EventProps> = ({ eventInfo, shopInfo, match, setEvent }) => {
   const eventId = match.params.eventId;
-  const [event, setEvent] = useState<IEventInfo | null>(null);
 
   useEffect(() => {
-    setEventId(eventId);
-    getEvent(eventId)
-      .then(event => {
-        setEvent(event);
-        return getShopData(event.shop.id);
-      })
-      .then(shopData => {
-        setShop(shopData);
-      })
-      .catch(e => {
-        setShop(null);
-        console.error(e);
-      });
-  }, [eventId, setEventId, setShop]);
+    setEvent(eventId);
+  }, [eventId, setEvent]);
 
-  if (shopData === null) {
+  if (!eventInfo.loading && !shopInfo.loading && shopInfo === null) {
     return (
       <Result
         status="404"
@@ -55,7 +40,10 @@ const Event: React.FC<EventProps> = ({ shopData, match, setEventId, setShop }) =
   return (
     <>
       <div style={{width: 'fit-content', margin: 'auto'}}>
-        {!!event && event.title} <Button size="small" type="link"><Link to={`./${eventId}/summary`}>접수 현황</Link></Button> <br/>
+        {!eventInfo.loading && eventInfo.data?.title} 
+        <Button size="small" type="link">
+          <Link to={`./${eventId}/summary`}>접수 현황</Link>
+        </Button> <br/>
       </div>
       {/* {!!event?.closed && <mark>본 주문은 마감되었습니다</mark>} */}
       <MenuList />

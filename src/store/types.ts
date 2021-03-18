@@ -1,8 +1,15 @@
-import { IShopInfo, IMenu } from "../types/common";
+import { IShopInfo, IMenu, IEventInfo } from "../types/common";
+
+export interface AsyncState<T> {
+  loading: boolean;
+  data?: T;
+  error?: Error;
+}
 
 export interface IOrderState {
-  eventId?: string;
-  shop: IShopInfo | null;
+  eventId: string | null;
+  event: AsyncState<IEventInfo>;
+  shop: AsyncState<IShopInfo>;
   orderList: IOrderSummary[];
   currentOrder: IOrder | null;
   orderer: string;

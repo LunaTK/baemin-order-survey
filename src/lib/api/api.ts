@@ -6,11 +6,22 @@ import { v5 as uuidv5 } from 'uuid';
 const fb = firebase.initializeApp(firebaseKey);
 const db = fb.firestore();
 
-const getEventList = () => db.collection('events').orderBy("date").get().then(snapshot => snapshot.docs as unknown as FirestoreDocRef<IEventInfo>[]);
+const fetchEventList = () => db.collection('events').orderBy("date").get().then(snapshot => snapshot.docs as unknown as FirestoreDocRef<IEventInfo>[]);
 
-const getEvent = (eventId: string) => db.collection('events').doc(eventId).get().then(snapshot => snapshot.data() as IEventInfo);
+const fetchEventInfo = (eventId: string) => db.collection('events').doc(eventId).get().then(snapshot => { 
+  const eventInfo = snapshot.data() as IEventInfo;
+  /**
+   * Make shopInfo object serializable
+   * https://redux.js.org/faq/actions#why-should-type-be-a-string-or-at-least-serializable-why-should-my-action-types-be-constants
+   */
+  eventInfo.shop = {
+    id: eventInfo.shop.id,
+    data: () => eventInfo.shop.data(),
+  };
+  return eventInfo;
+});
 
-const getShopData = (shopId: string) => db.collection('shops').doc(`${shopId}`).get().then(snapshot => snapshot.data() as IShopInfo);
+const fetchShopInfo = (shopId: string) => db.collection('shops').doc(`${shopId}`).get().then(snapshot => snapshot.data() as IShopInfo);
 
 const submitOrder = (eventId: string, userName: string, order: IOrderSummary[]) => {
   return db.collection('events').doc(eventId).update({
@@ -24,8 +35,8 @@ const submitOrder = (eventId: string, userName: string, order: IOrderSummary[]) 
 };
 
 export {
-  getEvent,
-  getEventList,
-  getShopData,
+  fetchEventInfo,
+  fetchEventList,
+  fetchShopInfo,
   submitOrder,
 }

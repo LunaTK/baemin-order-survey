@@ -1,7 +1,7 @@
 import { Collapse, List, Modal } from 'antd';
 import React, { useEffect, useState } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
-import { addOrder, setCurrentOrder, setShop } from '../../actions';
+import { addOrder, setCurrentOrder } from '../../actions';
 import { IOrderState } from '../../store/types';
 import Cart from '../Cart';
 import MenuDetail from './MenuDetail';
@@ -11,21 +11,21 @@ import './MenuList.scss';
 const { Panel } = Collapse;
 
 const mapState = (state: IOrderState) => ({
-  shopData: state.shop,
+  shopInfo: state.shop.data,
   currentOrder: state.currentOrder,
 });
 
 const mapDispatch = {
   addOrder,
   setCurrentOrder,
-  setShop,
 };
 
 const connector = connect(mapState, mapDispatch);
 
 type MenuListProps = ConnectedProps<typeof connector>;
 
-const MenuList: React.FC<MenuListProps> = ({ shopData, setShop, currentOrder, setCurrentOrder, addOrder}) => {
+const MenuList: React.FC<MenuListProps> = ({ shopInfo, currentOrder, setCurrentOrder, addOrder}) => {
+  const shopData = shopInfo;
   const [activeKey, setActiveKey] = useState<string[]>([]);
 
   const handleCancel = (e: React.MouseEvent) => {

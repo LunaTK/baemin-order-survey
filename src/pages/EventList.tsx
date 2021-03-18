@@ -1,14 +1,14 @@
 import { List } from 'antd';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { getEventList } from '../lib/api';
+import { fetchEventList } from '../lib/api';
 import { IEventInfo, FirestoreDocRef } from '../types/common';
 
 const EventList = () => {
   const [eventList, setEventList] = useState<FirestoreDocRef<IEventInfo>[]>([]);
 
   useEffect(() => {
-    getEventList().then(setEventList);
+    fetchEventList().then(setEventList);
   }, [])
 
   return (

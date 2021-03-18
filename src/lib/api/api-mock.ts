@@ -14,14 +14,14 @@ const sampleEvent: IEventInfo = {
   ]
 }; 
 
-const getEventList = (): Promise<FirestoreDocRef<IEventInfo>[]> => Promise.resolve([{
+const fetchEventList = (): Promise<FirestoreDocRef<IEventInfo>[]> => Promise.resolve([{
   id: "sample",
   data: () => sampleEvent
 }]);
 
-const getEvent = (eventId: string): Promise<IEventInfo> => Promise.resolve(sampleEvent);
+const fetchEventInfo = (eventId: string): Promise<IEventInfo> => Promise.resolve(sampleEvent);
 
-const getShopData = (shopId: string): Promise<IShopInfo> => Promise.resolve(shopSample);
+const fetchShopInfo = (shopId: string): Promise<IShopInfo> => Promise.resolve(shopSample);
 
 const submitOrder = (eventId: string, userName: string, order: IOrderSummary[]) => {
   console.log(JSON.stringify({
@@ -33,8 +33,8 @@ const submitOrder = (eventId: string, userName: string, order: IOrderSummary[]) 
 }
 
 export {
-  getEvent,
-  getEventList,
-  getShopData,
+  fetchEventInfo,
+  fetchEventList,
+  fetchShopInfo,
   submitOrder,
 }
