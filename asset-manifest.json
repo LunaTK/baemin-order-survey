@@ -1,24 +1,24 @@
 {
   "files": {
-    "static/js/0.1cceec84.chunk.js": "/baemin-order-collect-webapp/static/js/0.1cceec84.chunk.js",
-    "static/js/1.9647adac.chunk.js": "/baemin-order-collect-webapp/static/js/1.9647adac.chunk.js",
-    "main.js": "/baemin-order-collect-webapp/static/js/main.4cc610c8.chunk.js",
-    "runtime-main.js": "/baemin-order-collect-webapp/static/js/runtime-main.d7507531.js",
-    "static/js/4.85d902fa.chunk.js": "/baemin-order-collect-webapp/static/js/4.85d902fa.chunk.js",
-    "static/js/5.096092de.chunk.js": "/baemin-order-collect-webapp/static/js/5.096092de.chunk.js",
-    "static/js/6.f53dd5b8.chunk.js": "/baemin-order-collect-webapp/static/js/6.f53dd5b8.chunk.js",
-    "static/js/7.465be283.chunk.js": "/baemin-order-collect-webapp/static/js/7.465be283.chunk.js",
-    "static/js/8.2905c615.chunk.js": "/baemin-order-collect-webapp/static/js/8.2905c615.chunk.js",
-    "static/js/9.9ac5681f.chunk.js": "/baemin-order-collect-webapp/static/js/9.9ac5681f.chunk.js",
-    "index.html": "/baemin-order-collect-webapp/index.html",
-    "precache-manifest.5882cac91483afa121e56d4b0ba7430d.js": "/baemin-order-collect-webapp/precache-manifest.5882cac91483afa121e56d4b0ba7430d.js",
-    "service-worker.js": "/baemin-order-collect-webapp/service-worker.js",
-    "static/js/0.1cceec84.chunk.js.LICENSE.txt": "/baemin-order-collect-webapp/static/js/0.1cceec84.chunk.js.LICENSE.txt",
-    "static/js/5.096092de.chunk.js.LICENSE.txt": "/baemin-order-collect-webapp/static/js/5.096092de.chunk.js.LICENSE.txt"
+    "static/js/0.68dbfb1c.chunk.js": "/baemin-group-order-webapp/static/js/0.68dbfb1c.chunk.js",
+    "static/js/1.4200f9f9.chunk.js": "/baemin-group-order-webapp/static/js/1.4200f9f9.chunk.js",
+    "main.js": "/baemin-group-order-webapp/static/js/main.85469727.chunk.js",
+    "runtime-main.js": "/baemin-group-order-webapp/static/js/runtime-main.3db10b3a.js",
+    "static/js/4.06cd5bc9.chunk.js": "/baemin-group-order-webapp/static/js/4.06cd5bc9.chunk.js",
+    "static/js/5.b48b74a7.chunk.js": "/baemin-group-order-webapp/static/js/5.b48b74a7.chunk.js",
+    "static/js/6.e560e5fe.chunk.js": "/baemin-group-order-webapp/static/js/6.e560e5fe.chunk.js",
+    "static/js/7.6369cf33.chunk.js": "/baemin-group-order-webapp/static/js/7.6369cf33.chunk.js",
+    "static/js/8.1c308a80.chunk.js": "/baemin-group-order-webapp/static/js/8.1c308a80.chunk.js",
+    "static/js/9.f2fdfb84.chunk.js": "/baemin-group-order-webapp/static/js/9.f2fdfb84.chunk.js",
+    "index.html": "/baemin-group-order-webapp/index.html",
+    "precache-manifest.8da7067942b9971ae1e58a7ce7c5bdbe.js": "/baemin-group-order-webapp/precache-manifest.8da7067942b9971ae1e58a7ce7c5bdbe.js",
+    "service-worker.js": "/baemin-group-order-webapp/service-worker.js",
+    "static/js/0.68dbfb1c.chunk.js.LICENSE.txt": "/baemin-group-order-webapp/static/js/0.68dbfb1c.chunk.js.LICENSE.txt",
+    "static/js/5.b48b74a7.chunk.js.LICENSE.txt": "/baemin-group-order-webapp/static/js/5.b48b74a7.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.d7507531.js",
-    "static/js/5.096092de.chunk.js",
-    "static/js/main.4cc610c8.chunk.js"
+    "static/js/runtime-main.3db10b3a.js",
+    "static/js/5.b48b74a7.chunk.js",
+    "static/js/main.85469727.chunk.js"
   ]
 }
