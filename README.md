@@ -30,7 +30,7 @@
 
 # Demo
 
-[https://lunatk.github.io/baemin-group-order-webapp](https://lunatk.github.io/baemin-group-order-webapp)
+[https://lunatk.github.io/baemin-order-survey](https://lunatk.github.io/baemin-order-survey)
 
 ![demo](./screenshot/demo.gif)
 
