@@ -1,7 +1,7 @@
 import { Button } from 'antd';
 import React from 'react';
-import { removeOrder } from '../../actions';
-import { IOrderSummary } from '../../store/types';
+import { removeOrder } from 'src/actions';
+import { IOrderSummary } from 'src/store/types';
 import { CloseOutlined } from '@ant-design/icons';
 
 type OrderPreviewProps = {

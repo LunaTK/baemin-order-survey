@@ -1,4 +1,4 @@
-import newOrderSlice, { setShop, setEvent } from '../slice/new-order-slice';
+import newOrderSlice, { setShop, setEvent } from 'src/slice/new-order-slice';
 
 const {
   setCurrentOrder,

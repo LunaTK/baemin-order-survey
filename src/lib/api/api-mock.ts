@@ -1,6 +1,6 @@
-import { IOrderSummary } from '../../store/types';
-import { FirestoreDocRef, IEventInfo, IShopInfo } from '../../types/common';
-import shopSample from '../../mocks/shop-sample.json';
+import { IOrderSummary } from 'src/store/types';
+import { FirestoreDocRef, IEventInfo, IShopInfo } from 'src/types/common';
+import shopSample from 'src/mocks/shop-sample.json';
 
 const sampleEvent: IEventInfo = {
   title: "샘플 식사 이벤트",

@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { connect, ConnectedProps } from 'react-redux';
-import { setEvent } from '../slice/new-order-slice';
-import MenuList from '../components/MenuList';
-import { IOrderState } from '../store/types';
+import { setEvent } from 'src/slice/new-order-slice';
+import MenuList from 'src/components/MenuList';
+import { IOrderState } from 'src/store/types';
 import { Button, Result } from 'antd';
 
 const mapState = (state: IOrderState) => ({

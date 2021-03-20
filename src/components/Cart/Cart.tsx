@@ -1,6 +1,6 @@
 import React from 'react'
-import { IOrderState } from '../../store/types';
-import { removeOrder, submitOrder } from '../../actions';
+import { IOrderState } from 'src/store/types';
+import { removeOrder, submitOrder } from 'src/actions';
 import { connect, ConnectedProps } from 'react-redux';
 import { Button } from 'antd';
 import './Cart.scss';

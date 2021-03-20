@@ -1,6 +1,6 @@
-import { IMenu } from "../types/common";
-import { IOrderState, IOrder, IOrderSummary, IOptionEvent } from "../store/types";
-import { fetchEventInfo, submitOrder as submitOrderApi, fetchShopInfo } from '../lib/api';
+import { IMenu } from "src/types/common";
+import { IOrderState, IOrder, IOrderSummary, IOptionEvent } from "src/store/types";
+import { fetchEventInfo, submitOrder as submitOrderApi, fetchShopInfo } from 'src/lib/api';
 import { CaseReducer, createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialState: IOrderState = {

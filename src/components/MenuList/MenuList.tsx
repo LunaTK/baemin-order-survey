@@ -1,9 +1,9 @@
 import { Collapse, List, Modal } from 'antd';
 import React, { useEffect, useState } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
-import { addOrder, setCurrentOrder } from '../../actions';
-import { IOrderState } from '../../store/types';
-import Cart from '../Cart';
+import { addOrder, setCurrentOrder } from 'src/actions';
+import { IOrderState } from 'src/store/types';
+import Cart from 'src/components/Cart';
 import MenuDetail from './MenuDetail';
 import MenuItem from './MenuItem';
 import './MenuList.scss';

@@ -1,7 +1,7 @@
 /**
  * This file includes types used in Redux store
  */
-import { IShopInfo, IMenu, IEventInfo } from "../types/common";
+import { IShopInfo, IMenu, IEventInfo } from "src/types/common";
 
 export interface AsyncState<T> {
   loading: boolean;

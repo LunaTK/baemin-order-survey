@@ -2,8 +2,8 @@ import { Checkbox, message, Radio } from 'antd';
 import { CheckboxOptionType, CheckboxValueType } from 'antd/lib/checkbox/Group';
 import React, { useEffect, useState } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
-import { updateOption } from '../../actions';
-import { IOptionGroup } from '../../types/common';
+import { updateOption } from 'src/actions';
+import { IOptionGroup } from 'src/types/common';
 
 const radioStyle = {
   display: 'block',

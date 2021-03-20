@@ -2,8 +2,8 @@ import { Divider, Radio } from 'antd';
 import { RadioChangeEvent } from 'antd/lib/radio';
 import React from 'react';
 import { connect, ConnectedProps } from 'react-redux';
-import { updateMenuDefault } from '../../actions';
-import { IOrder, IOrderState } from '../../store/types';
+import { updateMenuDefault } from 'src/actions';
+import { IOrder, IOrderState } from 'src/store/types';
 import MenuOptionGroup from './MenuOptionGroup';
 
 const mapState = (state: IOrderState) => ({

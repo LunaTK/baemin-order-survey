@@ -2,7 +2,7 @@
  * This file includes types generally used across the project
  */
 import firebase from 'firebase/app';
-import { IOrderSummary } from '../store/types';
+import { IOrderSummary } from 'src/store/types';
 
 declare global {
   var firebase: typeof firebase;

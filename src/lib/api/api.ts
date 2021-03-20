@@ -1,6 +1,6 @@
-import { IOrderSummary } from '../../store/types';
-import { FirestoreDocRef, IEventInfo, IShopInfo } from '../../types/common';
-import firebaseKey from '../../firebase-key.json';
+import { IOrderSummary } from 'src/store/types';
+import { FirestoreDocRef, IEventInfo, IShopInfo } from 'src/types/common';
+import firebaseKey from 'src/firebase-key.json';
 import { v5 as uuidv5 } from 'uuid';
 
 const fb = firebase.initializeApp(firebaseKey);
