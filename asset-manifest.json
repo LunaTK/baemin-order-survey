@@ -1,24 +1,24 @@
 {
   "files": {
-    "static/js/0.68dbfb1c.chunk.js": "/baemin-group-order-webapp/static/js/0.68dbfb1c.chunk.js",
-    "static/js/1.4200f9f9.chunk.js": "/baemin-group-order-webapp/static/js/1.4200f9f9.chunk.js",
-    "main.js": "/baemin-group-order-webapp/static/js/main.85469727.chunk.js",
-    "runtime-main.js": "/baemin-group-order-webapp/static/js/runtime-main.3db10b3a.js",
-    "static/js/4.06cd5bc9.chunk.js": "/baemin-group-order-webapp/static/js/4.06cd5bc9.chunk.js",
-    "static/js/5.b48b74a7.chunk.js": "/baemin-group-order-webapp/static/js/5.b48b74a7.chunk.js",
-    "static/js/6.e560e5fe.chunk.js": "/baemin-group-order-webapp/static/js/6.e560e5fe.chunk.js",
-    "static/js/7.6369cf33.chunk.js": "/baemin-group-order-webapp/static/js/7.6369cf33.chunk.js",
-    "static/js/8.1c308a80.chunk.js": "/baemin-group-order-webapp/static/js/8.1c308a80.chunk.js",
-    "static/js/9.f2fdfb84.chunk.js": "/baemin-group-order-webapp/static/js/9.f2fdfb84.chunk.js",
-    "index.html": "/baemin-group-order-webapp/index.html",
-    "precache-manifest.8da7067942b9971ae1e58a7ce7c5bdbe.js": "/baemin-group-order-webapp/precache-manifest.8da7067942b9971ae1e58a7ce7c5bdbe.js",
-    "service-worker.js": "/baemin-group-order-webapp/service-worker.js",
-    "static/js/0.68dbfb1c.chunk.js.LICENSE.txt": "/baemin-group-order-webapp/static/js/0.68dbfb1c.chunk.js.LICENSE.txt",
-    "static/js/5.b48b74a7.chunk.js.LICENSE.txt": "/baemin-group-order-webapp/static/js/5.b48b74a7.chunk.js.LICENSE.txt"
+    "static/js/0.2d5cf84c.chunk.js": "/baemin-order-survey/static/js/0.2d5cf84c.chunk.js",
+    "static/js/1.8b5d0d27.chunk.js": "/baemin-order-survey/static/js/1.8b5d0d27.chunk.js",
+    "main.js": "/baemin-order-survey/static/js/main.fd5a5341.chunk.js",
+    "runtime-main.js": "/baemin-order-survey/static/js/runtime-main.a05c1149.js",
+    "static/js/4.c02a284b.chunk.js": "/baemin-order-survey/static/js/4.c02a284b.chunk.js",
+    "static/js/5.4081b314.chunk.js": "/baemin-order-survey/static/js/5.4081b314.chunk.js",
+    "static/js/6.da98c9d9.chunk.js": "/baemin-order-survey/static/js/6.da98c9d9.chunk.js",
+    "static/js/7.d07bcdc0.chunk.js": "/baemin-order-survey/static/js/7.d07bcdc0.chunk.js",
+    "static/js/8.1a102977.chunk.js": "/baemin-order-survey/static/js/8.1a102977.chunk.js",
+    "static/js/9.c249d4d2.chunk.js": "/baemin-order-survey/static/js/9.c249d4d2.chunk.js",
+    "index.html": "/baemin-order-survey/index.html",
+    "precache-manifest.49e52f749ed870d8fea616eb706588ed.js": "/baemin-order-survey/precache-manifest.49e52f749ed870d8fea616eb706588ed.js",
+    "service-worker.js": "/baemin-order-survey/service-worker.js",
+    "static/js/0.2d5cf84c.chunk.js.LICENSE.txt": "/baemin-order-survey/static/js/0.2d5cf84c.chunk.js.LICENSE.txt",
+    "static/js/5.4081b314.chunk.js.LICENSE.txt": "/baemin-order-survey/static/js/5.4081b314.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.3db10b3a.js",
-    "static/js/5.b48b74a7.chunk.js",
-    "static/js/main.85469727.chunk.js"
+    "static/js/runtime-main.a05c1149.js",
+    "static/js/5.4081b314.chunk.js",
+    "static/js/main.fd5a5341.chunk.js"
   ]
 }
