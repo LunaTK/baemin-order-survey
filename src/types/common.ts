@@ -1,3 +1,6 @@
+/**
+ * This file includes types generally used across the project
+ */
 import firebase from 'firebase/app';
 import { IOrderSummary } from '../store/types';
 
