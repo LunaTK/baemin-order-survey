@@ -8,6 +8,14 @@
 - **식사 참여자**는 URL로 접속해 원하는 메뉴를 고른 후 주문 접수
 - **주문 담당자**는 메뉴 취합 페이지를 확인 후 배민 앱으로 주문 진행
 
+# Tech Stack
+
+<div align="center">
+<img src="https://badges.aleen42.com/src/react.svg"/>
+<img src="https://badges.aleen42.com/src/redux.svg"/>
+<img src="https://badges.aleen42.com/src/typescript.svg"/>
+</div>
+
 # Architecture
 
 ![architecture](./screenshot/architecture.png)
