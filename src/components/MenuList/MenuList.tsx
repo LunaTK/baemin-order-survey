@@ -1,5 +1,5 @@
 import { Collapse, List, Modal } from 'antd';
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
 import { addOrder, setCurrentOrder } from 'src/actions';
 import { IOrderState } from 'src/store/types';
@@ -28,14 +28,14 @@ const MenuList: React.FC<MenuListProps> = ({ shopInfo, currentOrder, setCurrentO
   const shopData = shopInfo;
   const [activeKey, setActiveKey] = useState<string[]>([]);
 
-  const handleCancel = (e: React.MouseEvent) => {
+  const handleCancel = useCallback((e: React.MouseEvent) => {
     setCurrentOrder(null);
-  };
+  }, [setCurrentOrder]);
 
-  const handleAdd = (e: React.MouseEvent) => {
+  const handleAdd = useCallback((e: React.MouseEvent) => {
     addOrder();
     setCurrentOrder(null);
-  };
+  }, [addOrder, setCurrentOrder]);
 
   useEffect(() => {
     if (shopData)

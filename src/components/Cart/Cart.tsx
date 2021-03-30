@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback, useMemo } from 'react'
 import { IOrderState } from 'src/store/types';
 import { removeOrder, submitOrder } from 'src/actions';
 import { connect, ConnectedProps } from 'react-redux';
@@ -19,8 +19,8 @@ const connector = connect(mapState, mapDispatch);
 
 type CartProps = ConnectedProps<typeof connector>;
 const Cart: React.FC<CartProps> = ({ orderList, removeOrder, submitOrder }) => {
-  const totalPrice = orderList.reduce((acc, val) => acc + val.totalPrice, 0);
-  const onSubmitOrder = () => {
+  const totalPrice = useMemo(() => orderList.reduce((acc, val) => acc + val.totalPrice, 0), [orderList]);
+  const onSubmitOrder = useCallback(() => {
     if (orderList.length === 0) {
       alert('주문이 비어있습니다');
     } else {
@@ -31,7 +31,7 @@ const Cart: React.FC<CartProps> = ({ orderList, removeOrder, submitOrder }) => {
         alert('이름을 입력 해 주세요');
       }
     }
-  };
+  }, [orderList, submitOrder]);
 
   return (
     <div className="cart">
