@@ -27,7 +27,7 @@ const MenuDetail: React.FC<MenuDetailProps> = ({order, updateMenuDefault, totalP
   const images = menu.images;
 
   return (
-    <div className="MenuDetail">
+    <div className="menu-detail">
       {!!images.length && <img className="thumbnail" alt="food" src={images[0].url} height="160"/>}
       <div className="soft-box">
         <span className="title">{menu.name}</span>

@@ -17,12 +17,12 @@ const PriceList: React.FC<{
   }
 };
 
-const MenuItem: React.FC<{
+const MenuCell: React.FC<{
   menu: IMenu;
   onClick: () => void | undefined;
 }> = ({ menu, onClick }) => {
   return (
-    <div className="MenuList__item" onClick={onClick}>
+    <div className="menu-list--cell" onClick={onClick}>
       <div>{menu.name}</div>
       <div className="description">{menu.description}</div>
       <PriceList prices={menu.menuPrices}/>
@@ -30,4 +30,4 @@ const MenuItem: React.FC<{
   );
 };
 
-export default MenuItem;
+export default MenuCell;

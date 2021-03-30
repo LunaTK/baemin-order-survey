@@ -5,7 +5,7 @@ import { addOrder, setCurrentOrder } from 'src/actions';
 import { IOrderState } from 'src/store/types';
 import Cart from 'src/components/Cart';
 import MenuDetail from './MenuDetail';
-import MenuItem from './MenuItem';
+import MenuCell from './MenuCell';
 import './MenuList.scss';
 
 const { Panel } = Collapse;
@@ -43,7 +43,7 @@ const MenuList: React.FC<MenuListProps> = ({ shopInfo, currentOrder, setCurrentO
   }, [shopData]);
 
   return (
-    <div className="MenuList">
+    <div className="menu-list">
       <h2 style={{textAlign: 'center', margin: 0}}>{shopData?.name}</h2>
       <br/>
       <Collapse style={{padding: 0}} activeKey={activeKey} onChange={x => setActiveKey(x as string[])}>
@@ -53,7 +53,7 @@ const MenuList: React.FC<MenuListProps> = ({ shopInfo, currentOrder, setCurrentO
             dataSource={group.menus}
             renderItem={menu => (
               <List.Item>
-                <MenuItem 
+                <MenuCell 
                   onClick={() => {setCurrentOrder(menu)}} 
                   menu={menu} 
                   key={menu.menuId}

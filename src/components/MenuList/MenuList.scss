@@ -1,5 +1,5 @@
-.MenuList {
-    &__item {
+.menu-list {
+    &--cell {
         cursor: pointer;
         width: 100%;
         transition-duration: 0.2s;
@@ -10,7 +10,7 @@
     }
 }
 
-.MenuDetail { 
+.menu-detail { 
     .title {
         font-size: 18px;
     }

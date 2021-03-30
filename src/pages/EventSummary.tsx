@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { RouteComponentProps } from 'react-router-dom';
 import { fetchEventInfo } from 'src/lib/api';
-import { OrderPreview } from 'src/components/Cart';
+import { OrderPreviewCell } from 'src/components/Cart';
 import { IEventInfo } from 'src/types/common';
 import { Table } from 'antd';
 import { IOrderSummary } from 'src/store/types';
@@ -18,7 +18,7 @@ const columns = [
     key: 'order',
     render: (order: IOrderSummary[]) => (
       <>
-        {order.map(os => <OrderPreview orderSummary={os} showFullOption />)}
+        {order.map(os => <OrderPreviewCell orderSummary={os} showFullOption />)}
       </>
     ),
     sorter: (o1: any, o2: any) => {

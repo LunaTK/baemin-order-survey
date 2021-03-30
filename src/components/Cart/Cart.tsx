@@ -4,7 +4,7 @@ import { removeOrder, submitOrder } from 'src/actions';
 import { connect, ConnectedProps } from 'react-redux';
 import { Button } from 'antd';
 import './Cart.scss';
-import OrderPreview from './OrderPreview';
+import OrderPreviewCell from './OrderPreviewCell';
 
 const mapState = (state: IOrderState) => ({
   orderList: state.orderList,
@@ -34,12 +34,12 @@ const Cart: React.FC<CartProps> = ({ orderList, removeOrder, submitOrder }) => {
   };
 
   return (
-    <div className="Cart">
-      <div className="Cart--header">
+    <div className="cart">
+      <div className="cart--header">
         <h3>총 금액 : {totalPrice} 원</h3>
         <Button type="primary" size="small" onClick={onSubmitOrder}>주문요청</Button>
       </div>
-      {orderList.map((orderSummary, i) => <OrderPreview orderSummary={orderSummary} index={i} removeOrder={removeOrder}/>)}
+      {orderList.map((orderSummary, i) => <OrderPreviewCell orderSummary={orderSummary} index={i} removeOrder={removeOrder}/>)}
     </div>
   );
 };

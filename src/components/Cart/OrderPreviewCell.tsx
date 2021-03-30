@@ -4,14 +4,14 @@ import { removeOrder } from 'src/actions';
 import { IOrderSummary } from 'src/store/types';
 import { CloseOutlined } from '@ant-design/icons';
 
-type OrderPreviewProps = {
+type OrderPreviewCellProps = {
   orderSummary: IOrderSummary;
   index?: number;
   removeOrder?: typeof removeOrder;
   showFullOption?: boolean
 };
 
-const OrderPreview: React.FC<OrderPreviewProps> = ({orderSummary, index, removeOrder, showFullOption}) => {
+const OrderPreviewCell: React.FC<OrderPreviewCellProps> = ({orderSummary, index, removeOrder, showFullOption}) => {
   return (
     <div className="order-preview">
       { !!removeOrder && <Button 
@@ -32,4 +32,4 @@ const OrderPreview: React.FC<OrderPreviewProps> = ({orderSummary, index, removeO
   );
 };
 
-export default OrderPreview;
+export default OrderPreviewCell;
