@@ -16,6 +16,7 @@
     "@types/react-router-dom": "^5.1.5",
     "@types/uuid": "^8.3.0",
     "antd": "^4.6.4",
+    "customize-cra": "^1.0.0",
     "firebase": "^7.21.0",
     "preact": "^10.4.8",
     "react": "^16.13.1",
@@ -24,7 +25,8 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "typescript": "^3.9.9",
-    "uuid": "^8.3.1"
+    "uuid": "^8.3.1",
+    "webpack-bundle-analyzer": "^3.9.0"
   },
   "scripts": {
     "start": "react-app-rewired start",
@@ -32,7 +34,9 @@
     "build": "GENERATE_SOURCEMAP=false react-app-rewired build",
     "deploy:gh-pages": "gh-pages -d build -b gh-pages",
     "test": "react-app-rewired test",
-    "eject": "react-app-rewired eject"
+    "eject": "react-app-rewired eject",
+    "lint": "eslint 'src/**/*.{ts,tsx}'",
+    "lint:fix": "eslint --fix 'src/**/*.{ts,tsx}'"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -50,13 +54,16 @@
     ]
   },
   "devDependencies": {
-    "customize-cra": "^1.0.0",
+    "@typescript-eslint/eslint-plugin": "^2.34.0",
+    "@typescript-eslint/parser": "^2.34.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^1.7.0",
     "gh-pages": "^3.1.0",
     "postcss": "^8.1.0",
     "postcss-loader": "^4.0.2",
     "postcss-preset-env": "^6.7.0",
-    "precss": "^4.0.0",
-    "react-app-rewired": "^2.1.6",
-    "webpack-bundle-analyzer": "^3.9.0"
+    "react-app-rewired": "^2.1.6"
   }
 }

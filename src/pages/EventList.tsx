@@ -10,7 +10,7 @@ const EventList = () => {
 
   useEffect(() => {
     fetchEventList().then(setEventList);
-  }, [])
+  }, []);
 
   return (
     <List

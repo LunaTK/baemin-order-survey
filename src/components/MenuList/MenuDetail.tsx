@@ -21,10 +21,10 @@ type MenuDetailProps = ConnectedProps<typeof connector> & {
   order: ISelectedMenu | null;
 };
 
-const MenuDetail: React.FC<MenuDetailProps> = ({order, updateMenuDefault, totalPrice}) => {
+const MenuDetail: React.FC<MenuDetailProps> = ({ order, updateMenuDefault, totalPrice }) => {
   if (!order) return <></>;
-  const menu = order.menu;
-  const images = menu.images;
+  const { menu } = order;
+  const { images } = menu;
 
   return (
     <div className="menu-detail">
@@ -36,12 +36,12 @@ const MenuDetail: React.FC<MenuDetailProps> = ({order, updateMenuDefault, totalP
 
       <h3>기본</h3>
       <Radio.Group defaultValue={menu.menuPrices[0].name} onChange={updateMenuDefault}>
-        {menu.menuPrices.map(mp => <Radio value={mp.name}>{mp.name} ({mp.price})</Radio>)}
+        {menu.menuPrices.map((mp) => <Radio key={mp.name} value={mp.name}>{mp.name} ({mp.price})</Radio>)}
       </Radio.Group>
 
       <br/>
 
-      {menu.optionGroups.map(og => <><br/><MenuOptionGroup optionGroup={og} /></>)}
+      {menu.optionGroups.map((og) => <><br/><MenuOptionGroup optionGroup={og} /></>)}
 
       <Divider />
 
@@ -50,4 +50,4 @@ const MenuDetail: React.FC<MenuDetailProps> = ({order, updateMenuDefault, totalP
   );
 };
 
-export default connector(MenuDetail);;
+export default connector(MenuDetail);

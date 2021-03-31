@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from 'react'
+import React, { useCallback, useMemo } from 'react';
 import { IOrderState } from 'src/store/types';
 import { removeOrder, submitOrder } from 'src/actions';
 import { connect, ConnectedProps } from 'react-redux';
@@ -39,7 +39,7 @@ const Cart: React.FC<CartProps> = ({ selectedMenuList, removeOrder, submitOrder 
         <h3>총 금액 : {totalPrice} 원</h3>
         <Button type="primary" size="small" onClick={onSubmitOrder}>주문요청</Button>
       </div>
-      {selectedMenuList.map((selectedMenu, i) => <SelectedMenuPreview selectedMenu={selectedMenu} index={i} removeOrder={removeOrder}/>)}
+      {selectedMenuList.map((selectedMenu, i) => (<SelectedMenuPreview key={selectedMenu.menuName} selectedMenu={selectedMenu} index={i} removeOrder={removeOrder}/>))}
     </div>
   );
 };

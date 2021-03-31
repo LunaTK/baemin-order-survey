@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { connect, ConnectedProps } from 'react-redux';
 import { setEvent } from 'src/slice/new-order-slice';
@@ -17,11 +17,13 @@ const mapDispatch = {
 
 const connector = connect(mapState, mapDispatch);
 
-type EventProps = RouteComponentProps<{eventId: string}> 
+type EventProps = RouteComponentProps<{eventId: string}>
   & ConnectedProps<typeof connector>;
 
-const Event: React.FC<EventProps> = ({ eventInfo, shopInfo, match, setEvent }) => {
-  const eventId = match.params.eventId;
+const Event: React.FC<EventProps> = ({
+  eventInfo, shopInfo, match, setEvent,
+}) => {
+  const { eventId } = match.params;
 
   useEffect(() => {
     setEvent(eventId);
@@ -32,15 +34,15 @@ const Event: React.FC<EventProps> = ({ eventInfo, shopInfo, match, setEvent }) =
       <Result
         status="404"
         title="404"
-        subTitle={`Sorry, failed to load the content.`}
+        subTitle={'Sorry, failed to load the content.'}
       />
     );
   }
 
   return (
     <>
-      <div style={{width: 'fit-content', margin: 'auto'}}>
-        {!eventInfo.loading && eventInfo.data?.title} 
+      <div style={{ width: 'fit-content', margin: 'auto' }}>
+        {!eventInfo.loading && eventInfo.data?.title}
         <Button size="small" type="link">
           <Link to={`./${eventId}/summary`}>접수 현황</Link>
         </Button> <br/>

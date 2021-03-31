@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { fetchEventInfo } from 'src/lib/api';
 import { SelectedMenuPreview } from 'src/components/Cart';
@@ -9,7 +9,7 @@ const columns = [
   {
     title: '이름',
     dataIndex: 'userName',
-    key: 'userName'
+    key: 'userName',
   },
   {
     title: '주문',
@@ -17,24 +17,22 @@ const columns = [
     key: 'order',
     render: (order: ISelectedMenuSimple[]) => (
       <>
-        {order.map(os => <SelectedMenuPreview selectedMenu={os} showFullOption />)}
+        {order.map((sm) => <SelectedMenuPreview key={sm.menuName} selectedMenu={sm} showFullOption />)}
       </>
     ),
-    sorter: (o1: any, o2: any) => {
-      return o1.order[0].menuName < o2.order[0].menuName ? -1 : 1;
-    }
+    sorter: (o1: any, o2: any) => (o1.order[0].menuName < o2.order[0].menuName ? -1 : 1),
   },
   {
     title: '금액',
     dataIndex: 'totalPrice',
-    key: 'totalPrice'
-  }
+    key: 'totalPrice',
+  },
 ];
 
 type EventSummaryProps = RouteComponentProps<{eventId: string}>;
 
-const EventSummary: React.FC<EventSummaryProps> = ({match}) => {
-  const eventId = match.params.eventId;
+const EventSummary: React.FC<EventSummaryProps> = ({ match }) => {
+  const { eventId } = match.params;
   const [event, setEvent] = useState<IEventInfo | null>(null);
 
   useEffect(() => {
@@ -42,7 +40,7 @@ const EventSummary: React.FC<EventSummaryProps> = ({match}) => {
   }, [eventId]);
   return (
     <>
-      <h1>{event?.title} 주문요약{/*event?.closed === true && <mark> - 마감</mark>*/}</h1>
+      <h1>{event?.title} 주문요약{/* event?.closed === true && <mark> - 마감</mark> */}</h1>
       <h2>총 주문 : {event?.orders.length}</h2>
       <br/><br/>
       {!!event && <Table dataSource={event.orders} columns={columns} pagination={{ pageSize: 20 }}/>}

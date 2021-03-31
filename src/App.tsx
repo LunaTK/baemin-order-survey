@@ -6,7 +6,7 @@ import {
   Switch,
   Route,
   Redirect,
-} from "react-router-dom";
+} from 'react-router-dom';
 import { Provider } from 'react-redux';
 import newOrderStore from './store/new-order-store';
 

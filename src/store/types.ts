@@ -1,8 +1,8 @@
 /**
  * This file includes types used in Redux store
  */
-import { IShopInfo, IMenu } from "src/types/baemin";
-import { FirestoreDocRef } from "src/types/common";
+import { IShopInfo, IMenu } from 'src/types/baemin';
+import { FirestoreDocRef } from 'src/types/common';
 
 export interface AsyncState<T> {
   loading: boolean;
@@ -28,7 +28,7 @@ export interface IOrderState {
   currentMenu: ISelectedMenu | null;
   orderer: string;
 }
-  
+
 export interface ISelectedMenu {
   menu: IMenu;
   menuDefault: string;

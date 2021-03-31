@@ -24,7 +24,7 @@ type MenuOptionGroupProps = ConnectedProps<typeof connector> & {
 const OptionTitle: React.FC<{
   optionGroup: IOptionGroup,
   isRadio: boolean,
-}> = ({optionGroup, isRadio}) => (
+}> = ({ optionGroup, isRadio }) => (
   <h3>
     { optionGroup.name }
     { !isRadio && ` (최대 : ${optionGroup.maxOrderableQuantity} 개)` }
@@ -32,16 +32,16 @@ const OptionTitle: React.FC<{
 
 const MenuOptionGroup: React.FC<MenuOptionGroupProps> = ({ optionGroup, updateOption }) => {
   type SelectType = number | CheckboxValueType[];
-  const { 
+  const {
     options,
-    minOrderableQuantity, 
+    minOrderableQuantity,
     maxOrderableQuantity,
   } = optionGroup;
   const isRadio = maxOrderableQuantity === minOrderableQuantity && maxOrderableQuantity === 1;
 
   const [selected, setSelected] = useState<SelectType>(isRadio ? options[0].optionId : []);
   const [checkOptions, setCheckOptions] = useState<CheckboxOptionType[]>([]);
-  const _onChange = (selected: any) => {
+  const onOptionEvent = (selected: any) => {
     // 옵션 선택 가능 갯수 검증
     if (!isRadio && selected.length > maxOrderableQuantity) {
       message.warning('최대 선택 가능 갯수를 초과합니다');
@@ -49,20 +49,20 @@ const MenuOptionGroup: React.FC<MenuOptionGroupProps> = ({ optionGroup, updateOp
     }
 
     // 라디오버튼 선택값은 리스트로 래핑해서 보낸다
-    const _selected = isRadio ? [selected] : selected;
+    const selectedOption = isRadio ? [selected] : selected;
     setSelected(selected);
     updateOption({
       optionGroupId: optionGroup.optionGroupId,
       name: optionGroup.name,
-      selected: _selected, // 라디오버튼 선택값은 리스트로 래핑해서 보낸다
+      selected: selectedOption, // 라디오버튼 선택값은 리스트로 래핑해서 보낸다
     });
   };
 
   useEffect(() => {
     if (isRadio) {
-      _onChange(options[0].optionId); //라디오 초깃값 store에 업데이트
+      onOptionEvent(options[0].optionId); // 라디오 초깃값 store에 업데이트
     } else {
-      setCheckOptions(options.map(o => ({
+      setCheckOptions(options.map((o) => ({
         label: `${o.name} (${o.price} 원)`,
         value: o.optionId,
       })));
@@ -79,11 +79,12 @@ const MenuOptionGroup: React.FC<MenuOptionGroupProps> = ({ optionGroup, updateOp
       <OptionGroup
         options={ !isRadio ? checkOptions : undefined }
         value={selected}
-        onChange={(e:any) => _onChange(isRadio ? e.target.value : e)}
+        onChange={(e:any) => onOptionEvent(isRadio ? e.target.value : e)}
       >
-        { isRadio && options.map(o => (
-          <OptionComponent 
-            style={isRadio ? radioStyle : {}} 
+        { isRadio && options.map((o) => (
+          <OptionComponent
+            key={o.optionId}
+            style={isRadio ? radioStyle : {}}
             value={o.optionId}
           >
             {o.name}{!!o.price && `(${o.price}원)`}

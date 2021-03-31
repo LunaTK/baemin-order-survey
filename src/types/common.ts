@@ -4,7 +4,7 @@
 import firebase from 'firebase/app';
 
 declare global {
-  var firebase: typeof firebase;
+  const firebase: typeof firebase;
 }
 
 export type FirestoreDocRef<T=any> = {

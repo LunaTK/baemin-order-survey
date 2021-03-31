@@ -24,7 +24,9 @@ const connector = connect(mapState, mapDispatch);
 
 type MenuListProps = ConnectedProps<typeof connector>;
 
-const MenuList: React.FC<MenuListProps> = ({ shopInfo, currentMenu, setCurrentMenu, addOrder}) => {
+const MenuList: React.FC<MenuListProps> = ({
+  shopInfo, currentMenu, setCurrentMenu, addOrder,
+}) => {
   const shopData = shopInfo;
   const [activeKey, setActiveKey] = useState<string[]>([]);
 
@@ -38,24 +40,23 @@ const MenuList: React.FC<MenuListProps> = ({ shopInfo, currentMenu, setCurrentMe
   }, [addOrder, setCurrentMenu]);
 
   useEffect(() => {
-    if (shopData)
-      setActiveKey(shopData.groupMenus.map(g => g.menuGroupId.toString()));
+    if (shopData) setActiveKey(shopData.groupMenus.map((g) => g.menuGroupId.toString()));
   }, [shopData]);
 
   return (
     <div className="menu-list">
-      <h2 style={{textAlign: 'center', margin: 0}}>{shopData?.name}</h2>
+      <h2 style={{ textAlign: 'center', margin: 0 }}>{shopData?.name}</h2>
       <br/>
-      <Collapse style={{padding: 0}} activeKey={activeKey} onChange={x => setActiveKey(x as string[])}>
-        {shopData?.groupMenus.map(group => (<Panel header={group.name} key={group.menuGroupId.toString()}>
+      <Collapse style={{ padding: 0 }} activeKey={activeKey} onChange={(x) => setActiveKey(x as string[])}>
+        {shopData?.groupMenus.map((group) => (<Panel header={group.name} key={group.menuGroupId.toString()}>
           <List
             size="small"
             dataSource={group.menus}
-            renderItem={menu => (
+            renderItem={(menu) => (
               <List.Item>
-                <MenuCell 
-                  onClick={() => {setCurrentMenu(menu)}} 
-                  menu={menu} 
+                <MenuCell
+                  onClick={() => { setCurrentMenu(menu); }}
+                  menu={menu}
                   key={menu.menuId}
                 />
               </List.Item>

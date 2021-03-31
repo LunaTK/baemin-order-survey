@@ -1,3 +1,5 @@
+const precss = require('precss');
+
 module.exports = {
   plugins: [
     [
@@ -6,6 +8,6 @@ module.exports = {
         // Options
       },
     ],
-    require('precss'),
+    precss,
   ],
 };

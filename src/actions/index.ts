@@ -18,4 +18,4 @@ export {
   addOrder,
   removeOrder,
   submitOrder,
-}
+};
