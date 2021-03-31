@@ -1,7 +1,7 @@
 import { Collapse, List, Modal } from 'antd';
 import React, { useCallback, useEffect, useState } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
-import { addOrder, setCurrentOrder } from 'src/actions';
+import { addOrder, setCurrentMenu } from 'src/actions';
 import { IOrderState } from 'src/store/types';
 import Cart from 'src/components/Cart';
 import MenuDetail from './MenuDetail';
@@ -12,30 +12,30 @@ const { Panel } = Collapse;
 
 const mapState = (state: IOrderState) => ({
   shopInfo: state.shop.data,
-  currentOrder: state.currentOrder,
+  currentMenu: state.currentMenu,
 });
 
 const mapDispatch = {
   addOrder,
-  setCurrentOrder,
+  setCurrentMenu,
 };
 
 const connector = connect(mapState, mapDispatch);
 
 type MenuListProps = ConnectedProps<typeof connector>;
 
-const MenuList: React.FC<MenuListProps> = ({ shopInfo, currentOrder, setCurrentOrder, addOrder}) => {
+const MenuList: React.FC<MenuListProps> = ({ shopInfo, currentMenu, setCurrentMenu, addOrder}) => {
   const shopData = shopInfo;
   const [activeKey, setActiveKey] = useState<string[]>([]);
 
   const handleCancel = useCallback((e: React.MouseEvent) => {
-    setCurrentOrder(null);
-  }, [setCurrentOrder]);
+    setCurrentMenu(null);
+  }, [setCurrentMenu]);
 
   const handleAdd = useCallback((e: React.MouseEvent) => {
     addOrder();
-    setCurrentOrder(null);
-  }, [addOrder, setCurrentOrder]);
+    setCurrentMenu(null);
+  }, [addOrder, setCurrentMenu]);
 
   useEffect(() => {
     if (shopData)
@@ -54,7 +54,7 @@ const MenuList: React.FC<MenuListProps> = ({ shopInfo, currentOrder, setCurrentO
             renderItem={menu => (
               <List.Item>
                 <MenuCell 
-                  onClick={() => {setCurrentOrder(menu)}} 
+                  onClick={() => {setCurrentMenu(menu)}} 
                   menu={menu} 
                   key={menu.menuId}
                 />
@@ -64,7 +64,7 @@ const MenuList: React.FC<MenuListProps> = ({ shopInfo, currentOrder, setCurrentO
       </Collapse>
       <Modal
         title="메뉴 옵션"
-        visible={!!currentOrder}
+        visible={!!currentMenu}
         onOk={handleAdd}
         onCancel={handleCancel}
         okText="담기"

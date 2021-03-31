@@ -1,5 +1,5 @@
 import React from 'react'
-import { IMenu, IPrice } from 'src/types/common';
+import { IMenu, IPrice } from 'src/types/baemin';
 
 const PriceList: React.FC<{
   prices: IPrice[]

@@ -4,10 +4,10 @@ import { removeOrder, submitOrder } from 'src/actions';
 import { connect, ConnectedProps } from 'react-redux';
 import { Button } from 'antd';
 import './Cart.scss';
-import OrderPreviewCell from './OrderPreviewCell';
+import SelectedMenuPreview from './SelectedMenuPreview';
 
 const mapState = (state: IOrderState) => ({
-  orderList: state.orderList,
+  selectedMenuList: state.selectedMenuList,
 });
 
 const mapDispatch = {
@@ -18,10 +18,10 @@ const mapDispatch = {
 const connector = connect(mapState, mapDispatch);
 
 type CartProps = ConnectedProps<typeof connector>;
-const Cart: React.FC<CartProps> = ({ orderList, removeOrder, submitOrder }) => {
-  const totalPrice = useMemo(() => orderList.reduce((acc, val) => acc + val.totalPrice, 0), [orderList]);
+const Cart: React.FC<CartProps> = ({ selectedMenuList, removeOrder, submitOrder }) => {
+  const totalPrice = useMemo(() => selectedMenuList.reduce((acc, val) => acc + val.totalPrice, 0), [selectedMenuList]);
   const onSubmitOrder = useCallback(() => {
-    if (orderList.length === 0) {
+    if (selectedMenuList.length === 0) {
       alert('주문이 비어있습니다');
     } else {
       const userName = prompt('주문자 이름을 입력해 주세요');
@@ -31,7 +31,7 @@ const Cart: React.FC<CartProps> = ({ orderList, removeOrder, submitOrder }) => {
         alert('이름을 입력 해 주세요');
       }
     }
-  }, [orderList, submitOrder]);
+  }, [selectedMenuList, submitOrder]);
 
   return (
     <div className="cart">
@@ -39,7 +39,7 @@ const Cart: React.FC<CartProps> = ({ orderList, removeOrder, submitOrder }) => {
         <h3>총 금액 : {totalPrice} 원</h3>
         <Button type="primary" size="small" onClick={onSubmitOrder}>주문요청</Button>
       </div>
-      {orderList.map((orderSummary, i) => <OrderPreviewCell orderSummary={orderSummary} index={i} removeOrder={removeOrder}/>)}
+      {selectedMenuList.map((selectedMenu, i) => <SelectedMenuPreview selectedMenu={selectedMenu} index={i} removeOrder={removeOrder}/>)}
     </div>
   );
 };

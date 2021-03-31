@@ -1,7 +1,8 @@
 /**
  * This file includes types used in Redux store
  */
-import { IShopInfo, IMenu, IEventInfo } from "src/types/common";
+import { IShopInfo, IMenu } from "src/types/baemin";
+import { FirestoreDocRef } from "src/types/common";
 
 export interface AsyncState<T> {
   loading: boolean;
@@ -9,16 +10,26 @@ export interface AsyncState<T> {
   error?: string;
 }
 
+export interface IEventInfo {
+  shop: FirestoreDocRef<IShopInfo>;
+  title: string;
+  orders: {
+    userName: string;
+    order: ISelectedMenuSimple[];
+    totalPrice: number;
+  }[];
+}
+
 export interface IOrderState {
   eventId: string | null;
   event: AsyncState<IEventInfo>;
   shop: AsyncState<IShopInfo>;
-  orderList: IOrderSummary[];
-  currentOrder: IOrder | null;
+  selectedMenuList: ISelectedMenuSimple[];
+  currentMenu: ISelectedMenu | null;
   orderer: string;
 }
   
-export interface IOrder {
+export interface ISelectedMenu {
   menu: IMenu;
   menuDefault: string;
   options: {
@@ -33,7 +44,7 @@ export interface IOptionEvent {
   selected: number[];
 }
 
-export interface IOrderSummary {
+export interface ISelectedMenuSimple {
   menuName: string;
   menuDefault: string;
   options: {

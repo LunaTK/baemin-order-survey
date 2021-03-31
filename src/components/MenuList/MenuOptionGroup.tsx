@@ -3,7 +3,7 @@ import { CheckboxOptionType, CheckboxValueType } from 'antd/lib/checkbox/Group';
 import React, { useEffect, useState } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
 import { updateOption } from 'src/actions';
-import { IOptionGroup } from 'src/types/common';
+import { IOptionGroup } from 'src/types/baemin';
 
 const radioStyle = {
   display: 'block',

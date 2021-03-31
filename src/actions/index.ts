@@ -1,7 +1,7 @@
 import newOrderSlice, { setShop, setEvent } from 'src/slice/new-order-slice';
 
 const {
-  setCurrentOrder,
+  setCurrentMenu,
   updateMenuDefault,
   updateOption,
   addOrder,
@@ -12,7 +12,7 @@ const {
 export {
   setShop,
   setEvent,
-  setCurrentOrder,
+  setCurrentMenu,
   updateMenuDefault,
   updateOption,
   addOrder,

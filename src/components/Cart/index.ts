@@ -1,8 +1,8 @@
 import Cart from './Cart';
-import OrderPreviewCell from './OrderPreviewCell';
+import SelectedMenuPreview from './SelectedMenuPreview';
 
 export default Cart;
 
 export {
-  OrderPreviewCell,
+  SelectedMenuPreview,
 };

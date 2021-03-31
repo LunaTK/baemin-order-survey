@@ -1,35 +1,35 @@
 import { Button } from 'antd';
 import React from 'react';
 import { removeOrder } from 'src/actions';
-import { IOrderSummary } from 'src/store/types';
+import { ISelectedMenuSimple } from 'src/store/types';
 import { CloseOutlined } from '@ant-design/icons';
 
-type OrderPreviewCellProps = {
-  orderSummary: IOrderSummary;
+type SelectedMenuPreviewProps = {
+  selectedMenu: ISelectedMenuSimple;
   index?: number;
   removeOrder?: typeof removeOrder;
   showFullOption?: boolean
 };
 
-const OrderPreviewCell: React.FC<OrderPreviewCellProps> = ({orderSummary, index, removeOrder, showFullOption}) => {
+const SelectedMenuPreview: React.FC<SelectedMenuPreviewProps> = ({selectedMenu , index, removeOrder, showFullOption}) => {
   return (
-    <div className="order-preview">
+    <div className="selected-menu-preview">
       { !!removeOrder && <Button 
         type="text" size="small" shape="circle-outline" 
         icon={<CloseOutlined />} 
         onClick={() => removeOrder && removeOrder(index!)}
       /> }
-      <div className="order-detail">
+      <div className="selected-menu-preview-detail">
         <div className="title">
-          {!!(orderSummary.menuDefault.length > 0) && `[${orderSummary.menuDefault}] `}
-          {orderSummary.menuName} - {orderSummary.totalPrice} 원
+          {!!(selectedMenu.menuDefault.length > 0) && `[${selectedMenu.menuDefault}] `}
+          {selectedMenu.menuName} - {selectedMenu.totalPrice} 원
         </div>
         <div className="option" style={{whiteSpace: showFullOption ? 'normal' : 'nowrap'}}>
-          {Object.values(orderSummary.options).flatMap(x => x).join(', ')}
+          {Object.values(selectedMenu.options).flatMap(x => x).join(', ')}
         </div>
       </div>
     </div>
   );
 };
 
-export default OrderPreviewCell;
+export default SelectedMenuPreview;

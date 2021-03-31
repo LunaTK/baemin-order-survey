@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { RouteComponentProps } from 'react-router-dom';
 import { fetchEventInfo } from 'src/lib/api';
-import { OrderPreviewCell } from 'src/components/Cart';
-import { IEventInfo } from 'src/types/common';
+import { SelectedMenuPreview } from 'src/components/Cart';
 import { Table } from 'antd';
-import { IOrderSummary } from 'src/store/types';
+import { IEventInfo, ISelectedMenuSimple } from 'src/store/types';
 
 const columns = [
   {
@@ -16,9 +15,9 @@ const columns = [
     title: '주문',
     dataIndex: 'order',
     key: 'order',
-    render: (order: IOrderSummary[]) => (
+    render: (order: ISelectedMenuSimple[]) => (
       <>
-        {order.map(os => <OrderPreviewCell orderSummary={os} showFullOption />)}
+        {order.map(os => <SelectedMenuPreview selectedMenu={os} showFullOption />)}
       </>
     ),
     sorter: (o1: any, o2: any) => {
