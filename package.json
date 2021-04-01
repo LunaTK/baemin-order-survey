@@ -64,6 +64,7 @@
     "postcss": "^8.1.0",
     "postcss-loader": "^4.0.2",
     "postcss-preset-env": "^6.7.0",
+    "precss": "^4.0.0",
     "react-app-rewired": "^2.1.6"
   }
 }
