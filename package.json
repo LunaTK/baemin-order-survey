@@ -24,9 +24,11 @@
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
+    "tsconfig-paths-webpack-plugin": "^3.5.1",
     "typescript": "^3.9.9",
     "uuid": "^8.3.1",
-    "webpack-bundle-analyzer": "^3.9.0"
+    "webpack-bundle-analyzer": "^3.9.0",
+    "webpack-merge": "^5.7.3"
   },
   "scripts": {
     "start": "react-app-rewired start",
@@ -36,10 +38,22 @@
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject",
     "lint": "eslint 'src/**/*.{ts,tsx}'",
-    "lint:fix": "eslint --fix 'src/**/*.{ts,tsx}'"
+    "lint:fix": "eslint --fix 'src/**/*.{ts,tsx}'",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ]
   },
   "browserslist": {
     "production": [
@@ -54,6 +68,12 @@
     ]
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^6.2.1",
+    "@storybook/addon-essentials": "^6.2.1",
+    "@storybook/addon-links": "^6.2.1",
+    "@storybook/node-logger": "^6.2.1",
+    "@storybook/preset-create-react-app": "^3.1.7",
+    "@storybook/react": "^6.2.1",
     "@typescript-eslint/eslint-plugin": "^2.34.0",
     "@typescript-eslint/parser": "^2.34.0",
     "eslint": "^6.8.0",

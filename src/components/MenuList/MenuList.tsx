@@ -22,9 +22,9 @@ const mapDispatch = {
 
 const connector = connect(mapState, mapDispatch);
 
-type MenuListProps = ConnectedProps<typeof connector>;
+export type MenuListProps = ConnectedProps<typeof connector>;
 
-const MenuList: React.FC<MenuListProps> = ({
+export const PureMenuList: React.FC<MenuListProps> = ({
   shopInfo, currentMenu, setCurrentMenu, addOrder,
 }) => {
   const shopData = shopInfo;
@@ -80,4 +80,4 @@ const MenuList: React.FC<MenuListProps> = ({
   );
 };
 
-export default connector(MenuList);
+export default connector(PureMenuList);
