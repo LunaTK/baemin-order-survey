@@ -6,6 +6,7 @@ import { fetchEventInfo, submitOrder as submitOrderApi, fetchShopInfo } from 'sr
 import {
   CaseReducer, createAsyncThunk, createSlice, PayloadAction,
 } from '@reduxjs/toolkit';
+import history from 'src/lib/history';
 
 const initialState: IOrderState = {
   eventId: null,
@@ -133,7 +134,7 @@ const submitOrder: OrderCaseReducer<string> = (state, action) => {
   submitOrderApi(state.eventId!, action.payload, state.selectedMenuList)
     .then(() => {
       alert('주문 접수 완료');
-      window.location.pathname += '/summary';
+      history.push(`${history.location.pathname}/summary`);
     })
     .catch((e) => {
       alert('주문 접수 실패');

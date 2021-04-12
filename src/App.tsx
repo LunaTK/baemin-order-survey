@@ -1,13 +1,13 @@
 import React, { lazy, Suspense } from 'react';
 import './App.scss';
-
 import {
-  BrowserRouter as Router,
+  Router,
   Switch,
   Route,
   Redirect,
 } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import history from 'src/lib/history';
 import newOrderStore from './store/new-order-store';
 
 const Event = lazy(() => import('./pages/Event'));
@@ -17,7 +17,7 @@ const EventList = lazy(() => import('./pages/EventList'));
 function App() {
   return (
     <div className="App">
-      <Router basename={process.env.PUBLIC_URL}>
+      <Router history={history}>
         <Suspense fallback={null}>
           <Provider store={newOrderStore}>
             <Switch>
