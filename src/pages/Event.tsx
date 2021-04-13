@@ -7,6 +7,7 @@ import { IOrderState } from 'src/store/types';
 import { Button, Result } from 'antd';
 
 const mapState = (state: IOrderState) => ({
+  eventId: state.eventId,
   eventInfo: state.event,
   shopInfo: state.shop,
 });
@@ -21,13 +22,13 @@ type EventProps = RouteComponentProps<{eventId: string}>
   & ConnectedProps<typeof connector>;
 
 const Event: React.FC<EventProps> = ({
-  eventInfo, shopInfo, match, setEvent,
+  eventId, eventInfo, shopInfo, match, setEvent,
 }) => {
-  const { eventId } = match.params;
-
   useEffect(() => {
-    setEvent(eventId);
-  }, [eventId, setEvent]);
+    if (eventId !== match.params.eventId) {
+      setEvent(match.params.eventId);
+    }
+  }, [match.params.eventId, setEvent]);
 
   if (!eventInfo.loading && !shopInfo.loading && shopInfo === null) {
     return (
@@ -44,7 +45,7 @@ const Event: React.FC<EventProps> = ({
       <div style={{ width: 'fit-content', margin: 'auto' }}>
         {!eventInfo.loading && eventInfo.data?.title}
         <Button size="small" type="link">
-          <Link to={`./${eventId}/summary`}>접수 현황</Link>
+          <Link to={`./${match.params.eventId}/summary`}>접수 현황</Link>
         </Button> <br/>
       </div>
       {/* {!!event?.closed && <mark>본 주문은 마감되었습니다</mark>} */}
