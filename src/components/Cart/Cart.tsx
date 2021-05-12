@@ -1,10 +1,10 @@
-import React, { useCallback, useMemo } from 'react';
-import { IOrderState } from 'src/store/types';
-import { removeOrder, submitOrder } from 'src/actions';
-import { connect, ConnectedProps } from 'react-redux';
 import { Button } from 'antd';
+import React, { useCallback, useMemo } from 'react';
+import { connect, ConnectedProps } from 'react-redux';
+import { removeOrder, submitOrder } from 'src/actions';
+import SelectedMenuPreview from 'src/components/SelectedMenuPreview/SelectedMenuPreview';
+import { IOrderState } from 'src/store/types';
 import './Cart.scss';
-import SelectedMenuPreview from './SelectedMenuPreview';
 
 const mapState = (state: IOrderState) => ({
   selectedMenuList: state.selectedMenuList,

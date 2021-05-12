@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { fetchEventInfo } from 'src/lib/api';
-import { SelectedMenuPreview } from 'src/components/Cart';
+import SelectedMenuPreview from 'src/components/SelectedMenuPreview';
 import { Table } from 'antd';
 import { IEventInfo, ISelectedMenuSimple } from 'src/store/types';
 

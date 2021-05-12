@@ -1,8 +1,9 @@
+import { CloseOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import React from 'react';
 import { removeOrder } from 'src/actions';
 import { ISelectedMenuSimple } from 'src/store/types';
-import { CloseOutlined } from '@ant-design/icons';
+import './SelectedMenuPreview.scss';
 
 type SelectedMenuPreviewProps = {
   selectedMenu: ISelectedMenuSimple;
