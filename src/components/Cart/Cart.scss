@@ -11,17 +11,4 @@
         display: flex;
         justify-content: space-between;
     }
-
-    .selected-menu-preview {
-        display: flex;
-
-        .selected-menu-preview-detail {
-            display: grid;
-            .option {
-                color: gray;
-                text-overflow: ellipsis;
-                overflow: hidden;
-            }
-        }
-    }
 }
