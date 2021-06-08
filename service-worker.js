@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/baemin-order-survey/precache-manifest.e1fd6ef1c7fcb2e0c7943306e4ba4add.js"
+  "/baemin-order-survey/precache-manifest.85b9d982748995a54ef2f591a39e2e59.js"
 );
 
 self.addEventListener('message', (event) => {
