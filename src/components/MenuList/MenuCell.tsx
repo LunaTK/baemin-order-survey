@@ -19,12 +19,18 @@ const PriceList: React.FC<{
 const MenuCell: React.FC<{
   menu: IMenu;
   onClick: () => void | undefined;
-}> = ({ menu, onClick }) => (
+}> = ({ menu, onClick }) => {
+  // TODO: 썸네일 최적화 이미지 선정 로직 추가
+  const thumbnail = menu.images.length ? menu.images[0] : null;
+
+  return (
     <div className="menu-list--cell" onClick={onClick}>
+      { thumbnail && <img width="70" height="70" src={thumbnail.url} className="thumbnail"/> }
       <div>{menu.name}</div>
       <div className="description">{menu.description}</div>
       <PriceList prices={menu.menuPrices}/>
     </div>
-);
+  );
+};
 
 export default MenuCell;
