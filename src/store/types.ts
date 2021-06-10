@@ -33,12 +33,12 @@ export interface ISelectedMenu {
   menu: IMenu;
   menuDefault: string;
   options: {
-    [key: number]: IOptionEvent;
+    [key: number]: ISelectedOptions;
   },
   totalPrice: number;
 }
 
-export interface IOptionEvent {
+export interface ISelectedOptions {
   optionGroupId: number;
   name: string;
   selected: number[];

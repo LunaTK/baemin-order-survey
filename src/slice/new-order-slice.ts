@@ -1,6 +1,6 @@
 import { IMenu } from 'src/types/baemin';
 import {
-  IOrderState, ISelectedMenu, ISelectedMenuSimple, IOptionEvent,
+  IOrderState, ISelectedMenu, ISelectedMenuSimple, ISelectedOptions,
 } from 'src/store/types';
 import { fetchEventInfo, submitOrder as submitOrderApi, fetchShopInfo } from 'src/lib/api';
 import {
@@ -31,7 +31,7 @@ const util = {
       totalPrice: 0,
     };
   },
-  updateOption: (order: ISelectedMenu, optionEvent: IOptionEvent) => {
+  updateOption: (order: ISelectedMenu, optionEvent: ISelectedOptions) => {
     order.options = {
       ...order.options,
       [optionEvent.optionGroupId]: optionEvent,
@@ -112,7 +112,7 @@ const updateMenuDefault: OrderCaseReducer<string> = (state, action) => {
   }
 };
 
-const updateOption: OrderCaseReducer<IOptionEvent> = (state, action) => {
+const updateOption: OrderCaseReducer<ISelectedOptions> = (state, action) => {
   if (state.currentMenu) {
     util.updateOption(state.currentMenu, action.payload);
     state.currentMenu.totalPrice = util.getTotalPrice(state.currentMenu);
