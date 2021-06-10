@@ -27,7 +27,14 @@ const util = {
     return {
       menu,
       menuDefault: menu.menuPrices[0].name,
-      options: {},
+      options: Object.fromEntries(menu.optionGroups.map((og) => {
+        const isRadio = og.maxOrderableQuantity === og.minOrderableQuantity && og.maxOrderableQuantity === 1;
+        return [og.optionGroupId, {
+          optionGroupId: og.optionGroupId,
+          name: og.name,
+          selected: isRadio ? [og.options[0].optionId] : [],
+        }];
+      })),
       totalPrice: 0,
     };
   },

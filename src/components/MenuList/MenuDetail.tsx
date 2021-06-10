@@ -23,7 +23,7 @@ type MenuDetailProps = ConnectedProps<typeof connector> & {
 
 const MenuDetail: React.FC<MenuDetailProps> = ({ order, updateMenuDefault, totalPrice }) => {
   if (!order) return null;
-  const { menu } = order;
+  const { menu, menuDefault, options } = order;
   const { images } = menu;
 
   return (
@@ -41,7 +41,12 @@ const MenuDetail: React.FC<MenuDetailProps> = ({ order, updateMenuDefault, total
 
       <br/>
 
-      {menu.optionGroups.map((og) => <><br/><MenuOptionGroup optionGroup={og} /></>)}
+      {menu.optionGroups.map((og) => (
+        <>
+          <br/>
+          <MenuOptionGroup optionGroup={og} selected={options[og.optionGroupId].selected}/>
+        </>
+      ))}
 
       <Divider />
 

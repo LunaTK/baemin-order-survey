@@ -1,6 +1,5 @@
 import { Checkbox, message, Radio } from 'antd';
-import { CheckboxOptionType, CheckboxValueType } from 'antd/lib/checkbox/Group';
-import React, { useEffect, useState } from 'react';
+import React, { useMemo } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
 import { updateOption } from 'src/actions';
 import { IOptionGroup } from 'src/types/baemin';
@@ -17,8 +16,10 @@ const mapDispatch = {
 
 const connector = connect(null, mapDispatch);
 
+type SelectType = number[];
 type MenuOptionGroupProps = ConnectedProps<typeof connector> & {
   optionGroup: IOptionGroup;
+  selected: SelectType;
 };
 
 const OptionTitle: React.FC<{
@@ -30,17 +31,19 @@ const OptionTitle: React.FC<{
     { !isRadio && ` (최대 : ${optionGroup.maxOrderableQuantity} 개)` }
   </h3>);
 
-const MenuOptionGroup: React.FC<MenuOptionGroupProps> = ({ optionGroup, updateOption }) => {
-  type SelectType = number | CheckboxValueType[];
+const MenuOptionGroup: React.FC<MenuOptionGroupProps> = ({ optionGroup, updateOption, selected }) => {
   const {
     options,
     minOrderableQuantity,
     maxOrderableQuantity,
   } = optionGroup;
-  const isRadio = maxOrderableQuantity === minOrderableQuantity && maxOrderableQuantity === 1;
 
-  const [selected, setSelected] = useState<SelectType>(isRadio ? options[0].optionId : []);
-  const [checkOptions, setCheckOptions] = useState<CheckboxOptionType[]>([]);
+  const isRadio = maxOrderableQuantity === minOrderableQuantity && maxOrderableQuantity === 1;
+  const checkOptions = useMemo(() => options.map((o) => ({
+    label: `${o.name} (${o.price} 원)`,
+    value: o.optionId,
+  })), [options]);
+
   const onOptionEvent = (selected: any) => {
     // 옵션 선택 가능 갯수 검증
     if (!isRadio && selected.length > maxOrderableQuantity) {
@@ -48,26 +51,12 @@ const MenuOptionGroup: React.FC<MenuOptionGroupProps> = ({ optionGroup, updateOp
       return;
     }
 
-    // 라디오버튼 선택값은 리스트로 래핑해서 보낸다
-    const selectedOption = isRadio ? [selected] : selected;
-    setSelected(selected);
     updateOption({
       optionGroupId: optionGroup.optionGroupId,
       name: optionGroup.name,
-      selected: selectedOption, // 라디오버튼 선택값은 리스트로 래핑해서 보낸다
+      selected: isRadio ? [selected] : selected, // 라디오버튼 선택값은 리스트로 래핑해서 보낸다
     });
   };
-
-  useEffect(() => {
-    if (isRadio) {
-      onOptionEvent(options[0].optionId); // 라디오 초깃값 store에 업데이트
-    } else {
-      setCheckOptions(options.map((o) => ({
-        label: `${o.name} (${o.price} 원)`,
-        value: o.optionId,
-      })));
-    }
-  }, [isRadio, options]);
 
   const OptionGroup = isRadio ? Radio.Group : Checkbox.Group;
   const OptionComponent = isRadio ? Radio : Checkbox;
@@ -78,7 +67,7 @@ const MenuOptionGroup: React.FC<MenuOptionGroupProps> = ({ optionGroup, updateOp
 
       <OptionGroup
         options={ !isRadio ? checkOptions : undefined }
-        value={selected}
+        value={ isRadio ? selected[0] : selected }
         onChange={(e:any) => onOptionEvent(isRadio ? e.target.value : e)}
       >
         { isRadio && options.map((o) => (
