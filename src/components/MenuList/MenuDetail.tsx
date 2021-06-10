@@ -23,7 +23,7 @@ type MenuDetailProps = ConnectedProps<typeof connector> & {
 
 const MenuDetail: React.FC<MenuDetailProps> = ({ order, updateMenuDefault, totalPrice }) => {
   if (!order) return null;
-  const { menu, menuDefault, options } = order;
+  const { menu, options } = order;
   const { images } = menu;
 
   return (
