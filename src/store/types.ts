@@ -13,11 +13,13 @@ export interface AsyncState<T> {
 export interface IEventInfo {
   shop: FirestoreDocRef<IShopInfo>;
   title: string;
-  orders: {
-    userName: string;
-    order: ISelectedMenuSimple[];
-    totalPrice: number;
-  }[];
+  orders: IOrder[];
+}
+
+export interface IOrder {
+  userName: string;
+  order: ISelectedMenuSimple[];
+  totalPrice: number;
 }
 
 export interface IOrderState {
@@ -33,12 +35,12 @@ export interface ISelectedMenu {
   menu: IMenu;
   menuDefault: string;
   options: {
-    [key: number]: IOptionEvent;
+    [key: number]: ISelectedOptions;
   },
   totalPrice: number;
 }
 
-export interface IOptionEvent {
+export interface ISelectedOptions {
   optionGroupId: number;
   name: string;
   selected: number[];

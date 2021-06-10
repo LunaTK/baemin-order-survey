@@ -1,6 +1,6 @@
 import { IMenu } from 'src/types/baemin';
 import {
-  IOrderState, ISelectedMenu, ISelectedMenuSimple, IOptionEvent,
+  IOrderState, ISelectedMenu, ISelectedMenuSimple, ISelectedOptions,
 } from 'src/store/types';
 import { fetchEventInfo, submitOrder as submitOrderApi, fetchShopInfo } from 'src/lib/api';
 import {
@@ -27,11 +27,18 @@ const util = {
     return {
       menu,
       menuDefault: menu.menuPrices[0].name,
-      options: {},
+      options: Object.fromEntries(menu.optionGroups.map((og) => {
+        const isRadio = og.maxOrderableQuantity === og.minOrderableQuantity && og.maxOrderableQuantity === 1;
+        return [og.optionGroupId, {
+          optionGroupId: og.optionGroupId,
+          name: og.name,
+          selected: isRadio ? [og.options[0].optionId] : [],
+        }];
+      })),
       totalPrice: 0,
     };
   },
-  updateOption: (order: ISelectedMenu, optionEvent: IOptionEvent) => {
+  updateOption: (order: ISelectedMenu, optionEvent: ISelectedOptions) => {
     order.options = {
       ...order.options,
       [optionEvent.optionGroupId]: optionEvent,
@@ -112,7 +119,7 @@ const updateMenuDefault: OrderCaseReducer<string> = (state, action) => {
   }
 };
 
-const updateOption: OrderCaseReducer<IOptionEvent> = (state, action) => {
+const updateOption: OrderCaseReducer<ISelectedOptions> = (state, action) => {
   if (state.currentMenu) {
     util.updateOption(state.currentMenu, action.payload);
     state.currentMenu.totalPrice = util.getTotalPrice(state.currentMenu);
