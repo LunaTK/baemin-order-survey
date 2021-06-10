@@ -3,7 +3,7 @@ import { RouteComponentProps } from 'react-router-dom';
 import { fetchEventInfo } from 'src/lib/api';
 import SelectedMenuPreview from 'src/components/SelectedMenuPreview';
 import { Table } from 'antd';
-import { IEventInfo, ISelectedMenuSimple } from 'src/store/types';
+import { IEventInfo, IOrder, ISelectedMenuSimple } from 'src/store/types';
 
 const columns = [
   {
@@ -20,7 +20,7 @@ const columns = [
         {order.map((sm) => <SelectedMenuPreview key={sm.menuName} selectedMenu={sm} showFullOption />)}
       </>
     ),
-    sorter: (o1: any, o2: any) => (o1.order[0].menuName < o2.order[0].menuName ? -1 : 1),
+    sorter: (o1: IOrder, o2: IOrder) => (o1.order[0].menuName < o2.order[0].menuName ? -1 : 1),
   },
   {
     title: '금액',
