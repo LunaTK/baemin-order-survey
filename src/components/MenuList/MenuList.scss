@@ -7,6 +7,13 @@
         &:hover {
             background-color: #d8d8d821;
         }
+
+        .thumbnail {
+            float: right;
+            object-fit: cover;
+            border: 1px #dfdfdf solid;
+            border-radius: 5px;
+        }
     }
 }
 
