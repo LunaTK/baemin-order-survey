@@ -23,12 +23,12 @@ export interface IOrder {
 }
 
 export interface IOrderState {
-  eventId: string | null;
-  event: AsyncState<IEventInfo>;
-  shop: AsyncState<IShopInfo>;
-  selectedMenuList: ISelectedMenuSimple[];
-  currentMenu: ISelectedMenu | null;
-  orderer: string;
+  eventId: string | null; //? 이벤트의 id
+  event: AsyncState<IEventInfo>; //? 이벤트의 구체적인 json 데이터
+  shop: AsyncState<IShopInfo>; //? 이벤트에 해당하는 상점의 json 데이터
+  selectedMenuList: ISelectedMenuSimple[]; //? 장바구니에 담은 메뉴들
+  currentMenu: ISelectedMenu | null; //? 옵션을 선택중인 메뉴
+  menuListActiveKeys: string[]; //? 메뉴 목록에서 그룹별 펼침/접음 상태
 }
 
 export interface ISelectedMenu {

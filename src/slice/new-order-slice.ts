@@ -18,7 +18,7 @@ const initialState: IOrderState = {
   },
   selectedMenuList: [],
   currentMenu: null,
-  orderer: '',
+  menuListActiveKeys: [],
 };
 
 const util = {
@@ -149,6 +149,10 @@ const submitOrder: OrderCaseReducer<string> = (state, action) => {
     });
 };
 
+const setMenuListActiveKeys: OrderCaseReducer<string[]> = (state, action) => {
+  state.menuListActiveKeys = action.payload;
+};
+
 const newOrderSlice = createSlice({
   name: 'newOrder',
   initialState,
@@ -159,6 +163,7 @@ const newOrderSlice = createSlice({
     addOrder,
     removeOrder,
     submitOrder,
+    setMenuListActiveKeys,
   },
   extraReducers: (builder) => {
     builder.addCase(setEvent.pending, (state) => {
