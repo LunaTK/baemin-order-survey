@@ -1,4 +1,4 @@
-import { IEventInfo, ISelectedMenuSimple } from 'src/store/types';
+import { IEventInfo, ISelectedMenu } from 'src/store/types';
 import { FirestoreDocRef } from 'src/types/common';
 import { IShopInfo } from 'src/types/baemin';
 import shopSample from 'src/mocks/shop-sample.json';
@@ -38,7 +38,7 @@ const fetchEventInfo = (eventId: string): Promise<IEventInfo> => Promise.resolve
 
 const fetchShopInfo = (shopId: string): Promise<IShopInfo> => Promise.resolve(shopSample);
 
-const submitOrder = (eventId: string, userName: string, order: ISelectedMenuSimple[]) => {
+const submitOrder = (eventId: string, userName: string, order: ISelectedMenu[]) => {
   console.log(JSON.stringify({
     userName,
     order,

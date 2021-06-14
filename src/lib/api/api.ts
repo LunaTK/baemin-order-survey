@@ -1,4 +1,4 @@
-import { IEventInfo, ISelectedMenuSimple } from 'src/store/types';
+import { IEventInfo, ISelectedMenu } from 'src/store/types';
 import { FirestoreDocRef } from 'src/types/common';
 import { IShopInfo } from 'src/types/baemin';
 import firebaseKey from 'src/firebase-key.json';
@@ -24,7 +24,7 @@ const fetchEventInfo = (eventId: string) => db.collection('events').doc(eventId)
 
 const fetchShopInfo = (shopId: string) => db.collection('shops').doc(`${shopId}`).get().then((snapshot) => snapshot.data() as IShopInfo);
 
-const submitOrder = (eventId: string, userName: string, order: ISelectedMenuSimple[]) => db.collection('events').doc(eventId).update({
+const submitOrder = (eventId: string, userName: string, order: ISelectedMenu[]) => db.collection('events').doc(eventId).update({
   orders: firebase.firestore.FieldValue.arrayUnion({
     userName,
     order,

@@ -3,7 +3,7 @@ import { RouteComponentProps } from 'react-router-dom';
 import { fetchEventInfo } from 'src/lib/api';
 import SelectedMenuPreview from 'src/components/SelectedMenuPreview';
 import { Table } from 'antd';
-import { IEventInfo, IOrder, ISelectedMenuSimple } from 'src/store/types';
+import { IEventInfo, IOrder, ISelectedMenu } from 'src/store/types';
 
 const columns = [
   {
@@ -15,7 +15,7 @@ const columns = [
     title: '주문',
     dataIndex: 'order',
     key: 'order',
-    render: (order: ISelectedMenuSimple[]) => (
+    render: (order: ISelectedMenu[]) => (
       <>
         {order.map((sm) => <SelectedMenuPreview key={sm.menuName} selectedMenu={sm} showFullOption />)}
       </>

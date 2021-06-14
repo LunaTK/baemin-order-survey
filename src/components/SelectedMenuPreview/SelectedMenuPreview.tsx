@@ -2,11 +2,11 @@ import { CloseOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import React from 'react';
 import { removeCartItem } from 'src/actions';
-import { ISelectedMenuSimple } from 'src/store/types';
+import { ISelectedMenu } from 'src/store/types';
 import './SelectedMenuPreview.scss';
 
 type SelectedMenuPreviewProps = {
-  selectedMenu: ISelectedMenuSimple;
+  selectedMenu: ISelectedMenu;
   index?: number;
   removeCartItem?: typeof removeCartItem;
   showFullOption?: boolean

@@ -3,11 +3,11 @@ import { RadioChangeEvent } from 'antd/lib/radio';
 import React from 'react';
 import { connect, ConnectedProps } from 'react-redux';
 import { updateMenuDefault } from 'src/actions';
-import { ISelectedMenu, IOrderState } from 'src/store/types';
+import { ICurrentMenu, IOrderState } from 'src/store/types';
 import MenuOptionGroup from './MenuOptionGroup';
 
 const mapState = (state: IOrderState) => ({
-  order: state.currentMenu,
+  currentMenu: state.currentMenu,
   totalPrice: state.currentMenu?.totalPrice,
 });
 
@@ -18,12 +18,12 @@ const mapDispatch = {
 const connector = connect(mapState, mapDispatch);
 
 type MenuDetailProps = ConnectedProps<typeof connector> & {
-  order: ISelectedMenu | null;
+  currentMenu: ICurrentMenu | null;
 };
 
-const MenuDetail: React.FC<MenuDetailProps> = ({ order, updateMenuDefault, totalPrice }) => {
-  if (!order) return null;
-  const { menu, options } = order;
+const MenuDetail: React.FC<MenuDetailProps> = ({ currentMenu, updateMenuDefault, totalPrice }) => {
+  if (!currentMenu) return null;
+  const { menu, options } = currentMenu;
   const { images } = menu;
 
   return (
