@@ -20,8 +20,8 @@ const EventList = () => {
       renderItem={(item: FirestoreDocRef<IEventInfo>) => (
         <List.Item>
           <Link to={`/event/${item.id}`}>{item.data().title}</Link>
-        </List.Item>)
-      }
+        </List.Item>
+      )}
     />
   );
 };

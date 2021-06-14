@@ -1,11 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import './App.scss';
-import {
-  Router,
-  Switch,
-  Route,
-  Redirect,
-} from 'react-router-dom';
+import { Router, Switch, Route, Redirect } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import history from 'src/lib/history';
 import newOrderStore from './store/new-order-store';
@@ -24,7 +19,7 @@ function App() {
               <Route exact path="/event/:eventId/summary" component={EventSummary} />
               <Route exact path="/eventlist" component={EventList} />
               <Route exact path="/event/:eventId" component={Event} />
-              <Redirect to="/eventlist"/>
+              <Redirect to="/eventlist" />
             </Switch>
           </Provider>
         </Suspense>

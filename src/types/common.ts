@@ -7,7 +7,7 @@ declare global {
   const firebase: typeof firebase;
 }
 
-export type FirestoreDocRef<T=any> = {
+export type FirestoreDocRef<T = any> = {
   id: string;
   data: () => T;
 };

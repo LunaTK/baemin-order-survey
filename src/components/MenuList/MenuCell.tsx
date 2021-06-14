@@ -2,18 +2,26 @@ import React from 'react';
 import { IMenu, IPrice } from 'src/types/baemin';
 
 const PriceList: React.FC<{
-  prices: IPrice[]
+  prices: IPrice[];
 }> = ({ prices }) => {
   if (prices.length > 1) {
-    return (<ul>
-      {prices.map((p) => <li key={p.name}>
-        {p.name} : {p.price}
-      </li>)}
-    </ul>);
+    return (
+      <ul>
+        {prices.map((p) => (
+          <li key={p.name}>
+            {p.name} : {p.price}
+          </li>
+        ))}
+      </ul>
+    );
   }
-  return (<div>
-      {prices[0].name}{prices[0].name && ' : '}{prices[0].price}
-    </div>);
+  return (
+    <div>
+      {prices[0].name}
+      {prices[0].name && ' : '}
+      {prices[0].price}
+    </div>
+  );
 };
 
 const MenuCell: React.FC<{
@@ -25,10 +33,10 @@ const MenuCell: React.FC<{
 
   return (
     <div className="menu-list--cell" onClick={onClick}>
-      { thumbnail && <img width="80" height="80" src={thumbnail.url} className="thumbnail"/> }
+      {thumbnail && <img width="80" height="80" src={thumbnail.url} className="thumbnail" />}
       <div className="name">{menu.name}</div>
       <div className="description">{menu.description}</div>
-      <PriceList prices={menu.menuPrices}/>
+      <PriceList prices={menu.menuPrices} />
     </div>
   );
 };

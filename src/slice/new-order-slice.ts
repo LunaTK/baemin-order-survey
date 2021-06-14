@@ -1,11 +1,7 @@
 import { IMenu } from 'src/types/baemin';
-import {
-  IOrderState, ICurrentMenu, ISelectedMenu, ISelectedOptions,
-} from 'src/store/types';
+import { IOrderState, ICurrentMenu, ISelectedMenu, ISelectedOptions } from 'src/store/types';
 import { fetchEventInfo, submitOrder as submitOrderApi, fetchShopInfo } from 'src/lib/api';
-import {
-  CaseReducer, createAsyncThunk, createSlice, PayloadAction,
-} from '@reduxjs/toolkit';
+import { CaseReducer, createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import history from 'src/lib/history';
 
 const initialState: IOrderState = {
@@ -27,14 +23,19 @@ const util = {
     return {
       menu,
       menuDefault: menu.menuPrices[0].name,
-      options: Object.fromEntries(menu.optionGroups.map((og) => {
-        const isRadio = og.maxOrderableQuantity === og.minOrderableQuantity && og.maxOrderableQuantity === 1;
-        return [og.optionGroupId, {
-          optionGroupId: og.optionGroupId,
-          name: og.name,
-          selected: isRadio ? [og.options[0].optionId] : [],
-        }];
-      })),
+      options: Object.fromEntries(
+        menu.optionGroups.map((og) => {
+          const isRadio = og.maxOrderableQuantity === og.minOrderableQuantity && og.maxOrderableQuantity === 1;
+          return [
+            og.optionGroupId,
+            {
+              optionGroupId: og.optionGroupId,
+              name: og.name,
+              selected: isRadio ? [og.options[0].optionId] : [],
+            },
+          ];
+        }),
+      ),
       totalPrice: 0,
     };
   },
@@ -64,9 +65,7 @@ const util = {
       } else {
         const selected = new Set(optionSelected.selected);
 
-        totalPrice += og.options
-          .filter((o) => selected.has(o.optionId))
-          .reduce((acc, val) => acc + val.price, 0);
+        totalPrice += og.options.filter((o) => selected.has(o.optionId)).reduce((acc, val) => acc + val.price, 0);
       }
     });
 

@@ -9,25 +9,34 @@ type SelectedMenuPreviewProps = {
   selectedMenu: ISelectedMenu;
   index?: number;
   removeSelectedMenu?: typeof removeSelectedMenu;
-  showFullOption?: boolean
+  showFullOption?: boolean;
 };
 
 const SelectedMenuPreview: React.FC<SelectedMenuPreviewProps> = ({
-  selectedMenu, index, removeSelectedMenu, showFullOption,
+  selectedMenu,
+  index,
+  removeSelectedMenu,
+  showFullOption,
 }) => (
   <div className="selected-menu-preview">
-    { !!removeSelectedMenu && <Button
-      type="text" size="small" shape="circle-outline"
-      icon={<CloseOutlined />}
-      onClick={() => removeSelectedMenu && removeSelectedMenu(index!)}
-    /> }
+    {!!removeSelectedMenu && (
+      <Button
+        type="text"
+        size="small"
+        shape="circle-outline"
+        icon={<CloseOutlined />}
+        onClick={() => removeSelectedMenu && removeSelectedMenu(index!)}
+      />
+    )}
     <div className="selected-menu-preview-detail">
       <div className="title">
         {!!(selectedMenu.menuDefault.length > 0) && `[${selectedMenu.menuDefault}] `}
         {selectedMenu.menuName} - {selectedMenu.totalPrice} 원
       </div>
       <div className="option" style={{ whiteSpace: showFullOption ? 'normal' : 'nowrap' }}>
-        {Object.values(selectedMenu.options).flatMap((x) => x).join(', ')}
+        {Object.values(selectedMenu.options)
+          .flatMap((x) => x)
+          .join(', ')}
       </div>
     </div>
   </div>

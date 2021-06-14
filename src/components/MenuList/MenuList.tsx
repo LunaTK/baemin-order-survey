@@ -27,18 +27,29 @@ const connector = connect(mapState, mapDispatch);
 export type MenuListProps = ConnectedProps<typeof connector>;
 
 export const PureMenuList: React.FC<MenuListProps> = ({
-  menuListActiveKeys, setMenuListActiveKeys, shopInfo, currentMenu, setCurrentMenu, addSelectedMenu, 
+  menuListActiveKeys,
+  setMenuListActiveKeys,
+  shopInfo,
+  currentMenu,
+  setCurrentMenu,
+  addSelectedMenu,
 }) => {
   const shopData = shopInfo;
 
-  const handleCancel = useCallback((e: React.MouseEvent) => {
-    setCurrentMenu(null);
-  }, [setCurrentMenu]);
+  const handleCancel = useCallback(
+    (e: React.MouseEvent) => {
+      setCurrentMenu(null);
+    },
+    [setCurrentMenu],
+  );
 
-  const handleAdd = useCallback((e: React.MouseEvent) => {
-    addSelectedMenu();
-    setCurrentMenu(null);
-  }, [addSelectedMenu, setCurrentMenu]);
+  const handleAdd = useCallback(
+    (e: React.MouseEvent) => {
+      addSelectedMenu();
+      setCurrentMenu(null);
+    },
+    [addSelectedMenu, setCurrentMenu],
+  );
 
   useEffect(() => {
     if (shopData) {
@@ -51,22 +62,31 @@ export const PureMenuList: React.FC<MenuListProps> = ({
   return (
     <div className="menu-list">
       <h2 style={{ textAlign: 'center', margin: 0 }}>{shopData?.name}</h2>
-      <br/>
-      <Collapse style={{ padding: 0 }} activeKey={menuListActiveKeys} onChange={(x) => setMenuListActiveKeys(x as string[])}>
-        {shopData?.groupMenus.map((group) => (<Panel header={group.name} key={group.menuGroupId.toString()}>
-          <List
-            size="small"
-            dataSource={group.menus}
-            renderItem={(menu) => (
-              <List.Item>
-                <MenuCell
-                  onClick={() => { setCurrentMenu(menu); }}
-                  menu={menu}
-                  key={menu.menuId}
-                />
-              </List.Item>
-            )}/>
-        </Panel>))}
+      <br />
+      <Collapse
+        style={{ padding: 0 }}
+        activeKey={menuListActiveKeys}
+        onChange={(x) => setMenuListActiveKeys(x as string[])}
+      >
+        {shopData?.groupMenus.map((group) => (
+          <Panel header={group.name} key={group.menuGroupId.toString()}>
+            <List
+              size="small"
+              dataSource={group.menus}
+              renderItem={(menu) => (
+                <List.Item>
+                  <MenuCell
+                    onClick={() => {
+                      setCurrentMenu(menu);
+                    }}
+                    menu={menu}
+                    key={menu.menuId}
+                  />
+                </List.Item>
+              )}
+            />
+          </Panel>
+        ))}
       </Collapse>
       <Modal
         title="메뉴 옵션"

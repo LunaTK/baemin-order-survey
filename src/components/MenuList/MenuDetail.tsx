@@ -28,7 +28,7 @@ const MenuDetail: React.FC<MenuDetailProps> = ({ currentMenu, updateMenuDefault,
 
   return (
     <div className="menu-detail">
-      {!!images.length && <img className="thumbnail" alt="food" src={images[0].url} height="160"/>}
+      {!!images.length && <img className="thumbnail" alt="food" src={images[0].url} height="160" />}
       <div className="soft-box">
         <span className="title">{menu.name}</span>
         <span className="description">{menu.description}</span>
@@ -36,15 +36,19 @@ const MenuDetail: React.FC<MenuDetailProps> = ({ currentMenu, updateMenuDefault,
 
       <h3>기본</h3>
       <Radio.Group defaultValue={menu.menuPrices[0].name} onChange={updateMenuDefault}>
-        {menu.menuPrices.map((mp) => <Radio key={mp.name} value={mp.name}>{mp.name} ({mp.price})</Radio>)}
+        {menu.menuPrices.map((mp) => (
+          <Radio key={mp.name} value={mp.name}>
+            {mp.name} ({mp.price})
+          </Radio>
+        ))}
       </Radio.Group>
 
-      <br/>
+      <br />
 
       {menu.optionGroups.map((og) => (
         <>
-          <br/>
-          <MenuOptionGroup optionGroup={og} selected={options[og.optionGroupId].selected}/>
+          <br />
+          <MenuOptionGroup optionGroup={og} selected={options[og.optionGroupId].selected} />
         </>
       ))}
 

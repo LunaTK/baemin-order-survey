@@ -12,44 +12,58 @@ const sampleEvent: IEventInfo = {
   orders: [
     {
       userName: 'Elon Musk',
-      order: [{
-        menuName: '광양식바싹불고기 반상', menuDefault: '', options: { 추가선택: ['핫윙콤보(윙+봉) 2조각', '정관장 홍삼원 골드'] }, totalPrice: 10700,
-      }],
+      order: [
+        {
+          menuName: '광양식바싹불고기 반상',
+          menuDefault: '',
+          options: { 추가선택: ['핫윙콤보(윙+봉) 2조각', '정관장 홍삼원 골드'] },
+          totalPrice: 10700,
+        },
+      ],
       totalPrice: 10700,
     },
     {
       userName: 'Mark Zuckerberg',
-      order: [{
-        menuName: '세종대왕 궁중 한정식', menuDefault: '', options: { 추가선택: ['핫윙콤보(윙+봉) 2조각'] }, totalPrice: 29700,
-      }, {
-        menuName: '바싹불고기떡볶이', menuDefault: '', options: { 추가선택: ['단호박 식혜', '사이다'] }, totalPrice: 8400,
-      }],
+      order: [
+        {
+          menuName: '세종대왕 궁중 한정식',
+          menuDefault: '',
+          options: { 추가선택: ['핫윙콤보(윙+봉) 2조각'] },
+          totalPrice: 29700,
+        },
+        {
+          menuName: '바싹불고기떡볶이',
+          menuDefault: '',
+          options: { 추가선택: ['단호박 식혜', '사이다'] },
+          totalPrice: 8400,
+        },
+      ],
       totalPrice: 38100,
     },
   ],
 };
 
-const fetchEventList = (): Promise<FirestoreDocRef<IEventInfo>[]> => Promise.resolve([{
-  id: 'sample',
-  data: () => sampleEvent,
-}]);
+const fetchEventList = (): Promise<FirestoreDocRef<IEventInfo>[]> =>
+  Promise.resolve([
+    {
+      id: 'sample',
+      data: () => sampleEvent,
+    },
+  ]);
 
 const fetchEventInfo = (eventId: string): Promise<IEventInfo> => Promise.resolve(sampleEvent);
 
 const fetchShopInfo = (shopId: string): Promise<IShopInfo> => Promise.resolve(shopSample);
 
 const submitOrder = (eventId: string, userName: string, order: ISelectedMenu[]) => {
-  console.log(JSON.stringify({
-    userName,
-    order,
-    totalPrice: order.reduce((acc, val) => acc + val.totalPrice, 0),
-  }));
+  console.log(
+    JSON.stringify({
+      userName,
+      order,
+      totalPrice: order.reduce((acc, val) => acc + val.totalPrice, 0),
+    }),
+  );
   return Promise.resolve();
 };
 
-export {
-  fetchEventInfo,
-  fetchEventList,
-  fetchShopInfo,
-  submitOrder,
-};
+export { fetchEventInfo, fetchEventList, fetchShopInfo, submitOrder };
