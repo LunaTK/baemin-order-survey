@@ -1,14 +1,14 @@
 .cart {
-    position: sticky;
-    bottom: 0;
-    background: white;
-    padding: 1rem;
-    
-    box-shadow: 0 1px 6px rgba(32,33,36,0.28);
-    border-color: rgba(223,225,229,0);
+  position: sticky;
+  bottom: 0;
+  background: white;
+  padding: 1rem;
 
-    &--header {
-        display: flex;
-        justify-content: space-between;
-    }
+  box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+  border-color: rgba(223, 225, 229, 0);
+
+  &--header {
+    display: flex;
+    justify-content: space-between;
+  }
 }

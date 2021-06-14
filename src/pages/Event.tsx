@@ -17,12 +17,9 @@ const mapDispatch = {
 
 const connector = connect(mapState, mapDispatch);
 
-type EventProps = RouteComponentProps<{eventId: string}>
-  & ConnectedProps<typeof connector>;
+type EventProps = RouteComponentProps<{ eventId: string }> & ConnectedProps<typeof connector>;
 
-const Event: React.FC<EventProps> = ({
-  eventInfo, shopInfo, match, setEvent,
-}) => {
+const Event: React.FC<EventProps> = ({ eventInfo, shopInfo, match, setEvent }) => {
   const { eventId } = match.params;
 
   useEffect(() => {
@@ -30,13 +27,7 @@ const Event: React.FC<EventProps> = ({
   }, [eventId, setEvent]);
 
   if (!eventInfo.loading && !shopInfo.loading && shopInfo === null) {
-    return (
-      <Result
-        status="404"
-        title="404"
-        subTitle={'Sorry, failed to load the content.'}
-      />
-    );
+    return <Result status="404" title="404" subTitle={'Sorry, failed to load the content.'} />;
   }
 
   return (
@@ -45,7 +36,8 @@ const Event: React.FC<EventProps> = ({
         {!eventInfo.loading && eventInfo.data?.title}
         <Button size="small" type="link">
           <Link to={`./${eventId}/summary`}>접수 현황</Link>
-        </Button> <br/>
+        </Button>{' '}
+        <br />
       </div>
       {/* {!!event?.closed && <mark>본 주문은 마감되었습니다</mark>} */}
       <MenuList />

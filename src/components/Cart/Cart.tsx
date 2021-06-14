@@ -37,9 +37,18 @@ const Cart: React.FC<CartProps> = ({ selectedMenuList, removeSelectedMenu, submi
     <div className="cart">
       <div className="cart--header">
         <h3>총 금액 : {totalPrice} 원</h3>
-        <Button type="primary" size="small" onClick={onSubmitOrder}>주문요청</Button>
+        <Button type="primary" size="small" onClick={onSubmitOrder}>
+          주문요청
+        </Button>
       </div>
-      {selectedMenuList.map((selectedMenu, i) => (<SelectedMenuPreview key={selectedMenu.menuName} selectedMenu={selectedMenu} index={i} removeSelectedMenu={removeSelectedMenu}/>))}
+      {selectedMenuList.map((selectedMenu, i) => (
+        <SelectedMenuPreview
+          key={selectedMenu.menuName}
+          selectedMenu={selectedMenu}
+          index={i}
+          removeSelectedMenu={removeSelectedMenu}
+        />
+      ))}
     </div>
   );
 };

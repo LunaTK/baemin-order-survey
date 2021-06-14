@@ -17,7 +17,9 @@ const columns = [
     key: 'order',
     render: (order: ISelectedMenu[]) => (
       <>
-        {order.map((sm) => <SelectedMenuPreview key={sm.menuName} selectedMenu={sm} showFullOption />)}
+        {order.map((sm) => (
+          <SelectedMenuPreview key={sm.menuName} selectedMenu={sm} showFullOption />
+        ))}
       </>
     ),
     sorter: (o1: IOrder, o2: IOrder) => (o1.order[0].menuName < o2.order[0].menuName ? -1 : 1),
@@ -29,7 +31,7 @@ const columns = [
   },
 ];
 
-type EventSummaryProps = RouteComponentProps<{eventId: string}>;
+type EventSummaryProps = RouteComponentProps<{ eventId: string }>;
 
 const EventSummary: React.FC<EventSummaryProps> = ({ match }) => {
   const { eventId } = match.params;
@@ -40,10 +42,13 @@ const EventSummary: React.FC<EventSummaryProps> = ({ match }) => {
   }, [eventId]);
   return (
     <>
-      <h1>{event?.title} 주문요약{/* event?.closed === true && <mark> - 마감</mark> */}</h1>
+      <h1>
+        {event?.title} 주문요약{/* event?.closed === true && <mark> - 마감</mark> */}
+      </h1>
       <h2>총 주문 : {event?.orders.length}</h2>
-      <br/><br/>
-      {!!event && <Table dataSource={event.orders} columns={columns} pagination={{ pageSize: 20 }}/>}
+      <br />
+      <br />
+      {!!event && <Table dataSource={event.orders} columns={columns} pagination={{ pageSize: 20 }} />}
     </>
   );
 };
