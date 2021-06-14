@@ -4,8 +4,8 @@ const {
   setCurrentMenu,
   updateMenuDefault,
   updateOption,
-  addOrder,
-  removeOrder,
+  addCartItem,
+  removeCartItem,
   submitOrder,
   setMenuListActiveKeys,
 } = newOrderSlice.actions;
@@ -16,8 +16,8 @@ export {
   setCurrentMenu,
   updateMenuDefault,
   updateOption,
-  addOrder,
-  removeOrder,
+  addCartItem,
+  removeCartItem,
   submitOrder,
   setMenuListActiveKeys,
 };

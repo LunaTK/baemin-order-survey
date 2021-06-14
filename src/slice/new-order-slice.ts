@@ -126,13 +126,13 @@ const updateOption: OrderCaseReducer<ISelectedOptions> = (state, action) => {
   }
 };
 
-const addOrder: OrderCaseReducer<undefined> = (state, action) => {
+const addCartItem: OrderCaseReducer<undefined> = (state, action) => {
   if (state.currentMenu) {
     state.selectedMenuList.push(util.simplifySelectedMenu(state.currentMenu!));
   }
 };
 
-const removeOrder: OrderCaseReducer<number> = (state, action) => {
+const removeCartItem: OrderCaseReducer<number> = (state, action) => {
   const ol = state.selectedMenuList;
   state.selectedMenuList = [...ol.slice(0, action.payload), ...ol.slice(action.payload + 1)];
 };
@@ -160,8 +160,8 @@ const newOrderSlice = createSlice({
     setCurrentMenu,
     updateMenuDefault,
     updateOption,
-    addOrder,
-    removeOrder,
+    addCartItem,
+    removeCartItem,
     submitOrder,
     setMenuListActiveKeys,
   },

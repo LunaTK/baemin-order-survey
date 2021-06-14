@@ -1,7 +1,7 @@
 import { Collapse, List, Modal } from 'antd';
 import React, { useCallback, useEffect } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
-import { addOrder, setCurrentMenu, setMenuListActiveKeys } from 'src/actions';
+import { addCartItem, setCurrentMenu, setMenuListActiveKeys } from 'src/actions';
 import { IOrderState } from 'src/store/types';
 import Cart from 'src/components/Cart';
 import MenuDetail from './MenuDetail';
@@ -17,7 +17,7 @@ const mapState = (state: IOrderState) => ({
 });
 
 const mapDispatch = {
-  addOrder,
+  addCartItem,
   setCurrentMenu,
   setMenuListActiveKeys,
 };
@@ -27,7 +27,7 @@ const connector = connect(mapState, mapDispatch);
 export type MenuListProps = ConnectedProps<typeof connector>;
 
 export const PureMenuList: React.FC<MenuListProps> = ({
-  menuListActiveKeys, setMenuListActiveKeys, shopInfo, currentMenu, setCurrentMenu, addOrder, 
+  menuListActiveKeys, setMenuListActiveKeys, shopInfo, currentMenu, setCurrentMenu, addCartItem, 
 }) => {
   const shopData = shopInfo;
 
@@ -36,9 +36,9 @@ export const PureMenuList: React.FC<MenuListProps> = ({
   }, [setCurrentMenu]);
 
   const handleAdd = useCallback((e: React.MouseEvent) => {
-    addOrder();
+    addCartItem();
     setCurrentMenu(null);
-  }, [addOrder, setCurrentMenu]);
+  }, [addCartItem, setCurrentMenu]);
 
   useEffect(() => {
     if (shopData) {
