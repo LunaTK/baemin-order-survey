@@ -1,6 +1,6 @@
 import { IMenu } from 'src/types/baemin';
 import {
-  IOrderState, ISelectedMenu, ISelectedMenuSimple, ISelectedOptions,
+  IOrderState, ICurrentMenu, ISelectedMenu, ISelectedOptions,
 } from 'src/store/types';
 import { fetchEventInfo, submitOrder as submitOrderApi, fetchShopInfo } from 'src/lib/api';
 import {
@@ -22,7 +22,7 @@ const initialState: IOrderState = {
 };
 
 const util = {
-  toSelectedMenu: (menu: IMenu | null): ISelectedMenu | null => {
+  toSelectedMenu: (menu: IMenu | null): ICurrentMenu | null => {
     if (!menu) return null;
     return {
       menu,
@@ -38,13 +38,13 @@ const util = {
       totalPrice: 0,
     };
   },
-  updateOption: (order: ISelectedMenu, optionEvent: ISelectedOptions) => {
+  updateOption: (order: ICurrentMenu, optionEvent: ISelectedOptions) => {
     order.options = {
       ...order.options,
       [optionEvent.optionGroupId]: optionEvent,
     };
   },
-  getTotalPrice: (order: ISelectedMenu | null): number => {
+  getTotalPrice: (order: ICurrentMenu | null): number => {
     if (!order) return 0;
     let totalPrice = 0;
     const { menu } = order;
@@ -72,7 +72,7 @@ const util = {
 
     return totalPrice;
   },
-  simplifySelectedMenu: (order: ISelectedMenu): ISelectedMenuSimple => {
+  simplifySelectedMenu: (order: ICurrentMenu): ISelectedMenu => {
     const entries = Object.values(order.options).map((o) => {
       const og = order.menu.optionGroups.find((og) => og.optionGroupId === o.optionGroupId);
       return [o.name, o.selected.map((oid: number) => og?.options?.find((x) => x.optionId === oid)?.name)];
@@ -126,13 +126,13 @@ const updateOption: OrderCaseReducer<ISelectedOptions> = (state, action) => {
   }
 };
 
-const addOrder: OrderCaseReducer<undefined> = (state, action) => {
+const addSelectedMenu: OrderCaseReducer<undefined> = (state, action) => {
   if (state.currentMenu) {
     state.selectedMenuList.push(util.simplifySelectedMenu(state.currentMenu!));
   }
 };
 
-const removeOrder: OrderCaseReducer<number> = (state, action) => {
+const removeSelectedMenu: OrderCaseReducer<number> = (state, action) => {
   const ol = state.selectedMenuList;
   state.selectedMenuList = [...ol.slice(0, action.payload), ...ol.slice(action.payload + 1)];
 };
@@ -160,8 +160,8 @@ const newOrderSlice = createSlice({
     setCurrentMenu,
     updateMenuDefault,
     updateOption,
-    addOrder,
-    removeOrder,
+    addSelectedMenu,
+    removeSelectedMenu,
     submitOrder,
     setMenuListActiveKeys,
   },

@@ -1,7 +1,7 @@
 import { Button } from 'antd';
 import React, { useCallback, useMemo } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
-import { removeOrder, submitOrder } from 'src/actions';
+import { removeSelectedMenu, submitOrder } from 'src/actions';
 import SelectedMenuPreview from 'src/components/SelectedMenuPreview/SelectedMenuPreview';
 import { IOrderState } from 'src/store/types';
 import './Cart.scss';
@@ -11,14 +11,14 @@ const mapState = (state: IOrderState) => ({
 });
 
 const mapDispatch = {
-  removeOrder,
+  removeSelectedMenu,
   submitOrder,
 };
 
 const connector = connect(mapState, mapDispatch);
 
 type CartProps = ConnectedProps<typeof connector>;
-const Cart: React.FC<CartProps> = ({ selectedMenuList, removeOrder, submitOrder }) => {
+const Cart: React.FC<CartProps> = ({ selectedMenuList, removeSelectedMenu, submitOrder }) => {
   const totalPrice = useMemo(() => selectedMenuList.reduce((acc, val) => acc + val.totalPrice, 0), [selectedMenuList]);
   const onSubmitOrder = useCallback(() => {
     if (selectedMenuList.length === 0) {
@@ -39,7 +39,7 @@ const Cart: React.FC<CartProps> = ({ selectedMenuList, removeOrder, submitOrder 
         <h3>총 금액 : {totalPrice} 원</h3>
         <Button type="primary" size="small" onClick={onSubmitOrder}>주문요청</Button>
       </div>
-      {selectedMenuList.map((selectedMenu, i) => (<SelectedMenuPreview key={selectedMenu.menuName} selectedMenu={selectedMenu} index={i} removeOrder={removeOrder}/>))}
+      {selectedMenuList.map((selectedMenu, i) => (<SelectedMenuPreview key={selectedMenu.menuName} selectedMenu={selectedMenu} index={i} removeSelectedMenu={removeSelectedMenu}/>))}
     </div>
   );
 };

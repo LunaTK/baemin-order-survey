@@ -1,25 +1,25 @@
 import { CloseOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import React from 'react';
-import { removeOrder } from 'src/actions';
-import { ISelectedMenuSimple } from 'src/store/types';
+import { removeSelectedMenu } from 'src/actions';
+import { ISelectedMenu } from 'src/store/types';
 import './SelectedMenuPreview.scss';
 
 type SelectedMenuPreviewProps = {
-  selectedMenu: ISelectedMenuSimple;
+  selectedMenu: ISelectedMenu;
   index?: number;
-  removeOrder?: typeof removeOrder;
+  removeSelectedMenu?: typeof removeSelectedMenu;
   showFullOption?: boolean
 };
 
 const SelectedMenuPreview: React.FC<SelectedMenuPreviewProps> = ({
-  selectedMenu, index, removeOrder, showFullOption,
+  selectedMenu, index, removeSelectedMenu, showFullOption,
 }) => (
   <div className="selected-menu-preview">
-    { !!removeOrder && <Button
+    { !!removeSelectedMenu && <Button
       type="text" size="small" shape="circle-outline"
       icon={<CloseOutlined />}
-      onClick={() => removeOrder && removeOrder(index!)}
+      onClick={() => removeSelectedMenu && removeSelectedMenu(index!)}
     /> }
     <div className="selected-menu-preview-detail">
       <div className="title">
