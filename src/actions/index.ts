@@ -7,6 +7,7 @@ const {
   addOrder,
   removeOrder,
   submitOrder,
+  setMenuListActiveKeys,
 } = newOrderSlice.actions;
 
 export {
@@ -18,4 +19,5 @@ export {
   addOrder,
   removeOrder,
   submitOrder,
+  setMenuListActiveKeys,
 };
