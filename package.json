@@ -17,7 +17,7 @@
     "@types/uuid": "^8.3.0",
     "antd": "^4.6.4",
     "customize-cra": "^1.0.0",
-    "firebase": "^7.21.0",
+    "firebase": "^9.0.0-beta.2",
     "preact": "^10.4.8",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
