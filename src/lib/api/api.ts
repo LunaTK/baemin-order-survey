@@ -12,7 +12,7 @@ const fetchEventList = () =>
     .collection('events')
     .orderBy('date')
     .get()
-    .then((snapshot) => snapshot.docs as unknown as FirestoreDocRef<IEventInfo>[]);
+    .then((snapshot) => (snapshot.docs as unknown) as FirestoreDocRef<IEventInfo>[]);
 
 const fetchEventInfo = (eventId: string) =>
   db
