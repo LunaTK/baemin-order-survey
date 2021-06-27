@@ -1,9 +1,9 @@
 import { IEventInfo, ISelectedMenu } from 'src/store/types';
 import { FirestoreDocRef } from 'src/types/common';
 import { IShopInfo } from 'src/types/baemin';
-import firebaseKey from 'src/firebase-key.json';
 import { v5 as uuidv5 } from 'uuid';
 
+const firebaseKey = JSON.parse(process.env.REACT_APP_FIREBASE_CONFIG!);
 const fb = firebase.initializeApp(firebaseKey);
 const db = fb.firestore();
 

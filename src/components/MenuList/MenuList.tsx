@@ -57,7 +57,7 @@ export const PureMenuList: React.FC<MenuListProps> = ({
     } else {
       setMenuListActiveKeys([]);
     }
-  }, [shopData]);
+  }, [shopData, setMenuListActiveKeys]);
 
   return (
     <div className="menu-list">
