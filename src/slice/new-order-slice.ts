@@ -1,6 +1,6 @@
 import { IMenu } from 'src/types/baemin';
 import { IOrderState, ICurrentMenu, ISelectedMenu, ISelectedOptions } from 'src/store/types';
-import { fetchEventInfo, submitOrder as submitOrderApi, fetchShopInfo } from 'src/lib/api';
+import api from 'src/lib/api';
 import { CaseReducer, createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import history from 'src/lib/history';
 
@@ -87,7 +87,7 @@ const util = {
 
 export const setEvent = createAsyncThunk('setEvent', async (eventId: string, thunkAPI) => {
   try {
-    const eventInfo = await fetchEventInfo(eventId);
+    const eventInfo = await api.fetchEventInfo(eventId);
     const shopId = eventInfo.shop.id;
     thunkAPI.dispatch(setShop(shopId));
     return { eventId, eventInfo };
@@ -98,7 +98,7 @@ export const setEvent = createAsyncThunk('setEvent', async (eventId: string, thu
 
 export const setShop = createAsyncThunk('setShop', async (shopId: string, thunkAPI) => {
   try {
-    return fetchShopInfo(shopId);
+    return api.fetchShopInfo(shopId);
   } catch (err) {
     return thunkAPI.rejectWithValue(err);
   }
@@ -137,7 +137,8 @@ const removeSelectedMenu: OrderCaseReducer<number> = (state, action) => {
 };
 
 const submitOrder: OrderCaseReducer<string> = (state, action) => {
-  submitOrderApi(state.eventId!, action.payload, state.selectedMenuList)
+  api
+    .submitOrder(state.eventId!, action.payload, state.selectedMenuList)
     .then(() => {
       alert('주문 접수 완료');
       history.push(`${history.location.pathname}/summary`);

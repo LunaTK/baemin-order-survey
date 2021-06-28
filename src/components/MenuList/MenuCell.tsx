@@ -33,7 +33,7 @@ const MenuCell: React.FC<{
 
   return (
     <div className="menu-list--cell" onClick={onClick}>
-      {thumbnail && <img width="80" height="80" src={thumbnail.url} className="thumbnail" alt="thumbnail"/>}
+      {thumbnail && <img width="80" height="80" src={thumbnail.url} className="thumbnail" alt="thumbnail" />}
       <div className="name">{menu.name}</div>
       <div className="description">{menu.description}</div>
       <PriceList prices={menu.menuPrices} />
