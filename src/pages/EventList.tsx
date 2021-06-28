@@ -17,6 +17,9 @@ const EventList = () => {
       header={<div>이벤트 목록</div>}
       bordered
       dataSource={eventList}
+      pagination={{
+        pageSize: 10,
+      }}
       renderItem={(item: FirestoreDocRef<IEventInfo>) => (
         <List.Item>
           <Link to={`/event/${item.id}`}>{item.data().title}</Link>
