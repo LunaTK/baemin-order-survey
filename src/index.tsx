@@ -7,7 +7,7 @@ import Banner from './components/Banner';
 
 ReactDOM.render(
   <React.StrictMode>
-    {process.env.REACT_APP_USE_MOCK && <Banner />}
+    {process.env.REACT_APP_USE_MOCK === '1' && <Banner />}
     <App />
   </React.StrictMode>,
   document.getElementById('root'),
