@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import { fetchEventInfo } from 'src/lib/api';
+import api from 'src/lib/api';
 import SelectedMenuPreview from 'src/components/SelectedMenuPreview';
 import { Table } from 'antd';
 import { IEventInfo, IOrder, ISelectedMenu } from 'src/store/types';
@@ -38,7 +38,7 @@ const EventSummary: React.FC<EventSummaryProps> = ({ match }) => {
   const [event, setEvent] = useState<IEventInfo | null>(null);
 
   useEffect(() => {
-    fetchEventInfo(eventId).then(setEvent);
+    api.fetchEventInfo(eventId).then(setEvent);
   }, [eventId]);
   return (
     <>

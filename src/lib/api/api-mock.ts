@@ -66,4 +66,4 @@ const submitOrder = (eventId: string, userName: string, order: ISelectedMenu[]) 
   return Promise.resolve();
 };
 
-export { fetchEventInfo, fetchEventList, fetchShopInfo, submitOrder };
+export default { fetchEventInfo, fetchEventList, fetchShopInfo, submitOrder };
