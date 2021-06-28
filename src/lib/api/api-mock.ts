@@ -1,7 +1,7 @@
 import { IEventInfo, ISelectedMenu } from 'src/store/types';
 import { FirestoreDocRef } from 'src/types/common';
 import { IShopInfo } from 'src/types/baemin';
-import shopSample from 'src/mocks/shop-sample.json';
+import shopSample from 'src/mocks/shop-sample';
 
 const sampleEvent: IEventInfo = {
   title: '샘플 식사 이벤트',
